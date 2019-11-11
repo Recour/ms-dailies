@@ -1,7 +1,11 @@
 import React from 'react'
 import moment from 'moment'
-import { connect } from 'react-redux';
-import { setCurrentTime } from '../actions/timeActions';
+import momentdurationformat from 'moment-duration-format'
+import { connect } from 'react-redux'
+import { 
+    setCurrentTime,
+    setLastVisit 
+} from '../actions/timeActions'
 
 class Time extends React.Component {
     constructor(props) {
@@ -16,6 +20,9 @@ class Time extends React.Component {
 
     componentDidMount() {
         this.setCurrentTime()
+
+        // Set lastVisit before closing
+        window.addEventListener('beforeunload', this.props.setLastVisit(new moment.utc()))
     }
 
     setCurrentTime() {
@@ -31,9 +38,12 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-      setCurrentTime: (time) => {
-        dispatch(setCurrentTime(time))
-      }
+        setCurrentTime: (time) => {
+            dispatch(setCurrentTime(time))
+        },
+        setLastVisit: (time) => {
+            dispatch(setLastVisit(time))
+        }
     }
 }
 

@@ -52,7 +52,7 @@ export default class GridPanel extends React.Component {
 
     renderChildren() {
         return this.props.children.map((child, index) => 
-            <Grid item xs={12} sm={2} key={index}>
+            <Grid item xs={12} sm={6} md={3} lg={2} key={index}>
                 {child}
             </Grid>
         )

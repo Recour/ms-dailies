@@ -1,16 +1,7 @@
-import moment from 'moment'
-
-// Daily reset time is 00:00 UTC
-const getDailyResetTime = () => {
-    var dailyResetTime = new moment.utc()
-    dailyResetTime.hour(24)
-    dailyResetTime.minute(0)
-    dailyResetTime.second(0)
-    dailyResetTime.millisecond(0)
-    return dailyResetTime
-}
-
-const dailyResetTime = getDailyResetTime()
+import { 
+    dailyReset, 
+    weeklyBossReset 
+} from './resetTimes'
 
 const data = {
     dailies: {
@@ -18,90 +9,123 @@ const data = {
             {
                 name: "Balrog",
                 image: require("../static/images/balrog.png"),
-                difficulty: "Easy"
+                difficulty: "Easy",
+                resetType: dailyReset
             },
             {
                 name: "Zakum",
                 image: require("../static/images/zakum.png"),
-                difficulty: "Easy / Normal"
+                difficulty: "Easy / Normal",
+                resetType: dailyReset
             },
             {
                 name: "Ursus",
                 image: require("../static/images/ursus.png"),
-                difficulty: "Normal"
+                difficulty: "Normal",
+                resetType: dailyReset
             },
             {
                 name: "Magnus",
                 image: require("../static/images/magnus.png"),
-                difficulty: "Easy / Normal"
+                difficulty: "Easy / Normal",
+                resetType: dailyReset
             },
             {
                 name: "Hilla",
                 image: require("../static/images/hilla.png"),
-                difficulty: "Normal"
+                difficulty: "Normal",
+                resetType: dailyReset
             },
             {
                 name: "OMNI-CLN",
                 image: require("../static/images/omni-cln.png"),
-                difficulty: "Normal"
+                difficulty: "Normal",
+                resetType: dailyReset
             },
             {
                 name: "Papulatus",
                 image: require("../static/images/papulatus.png"),
-                difficulty: "Easy / Normal"
+                difficulty: "Easy / Normal",
+                resetType: dailyReset
             },    
             {
                 name: "Pierre",
                 image: require("../static/images/pierre.png"),
-                difficulty: "Normal"
+                difficulty: "Normal",
+                resetType: dailyReset
             },    
             {
                 name: "Von Bon",
                 image: require("../static/images/von_bon.png"),
-                difficulty: "Normal"
+                difficulty: "Normal",
+                resetType: dailyReset
             },
             {
                 name: "Crimson Queen",
                 image: require("../static/images/crimson_queen.png"),
-                difficulty: "Normal"
+                difficulty: "Normal",
+                resetType: dailyReset
             },
             {
                 name: "Vellum",
                 image: require("../static/images/vellum.png"),
-                difficulty: "Normal"
+                difficulty: "Normal",
+                resetType: dailyReset
             },
             {
                 name: "Von Leon",
                 image: require("../static/images/von_leon.png"),
-                difficulty: "Easy / Normal / Hard"
+                difficulty: "Easy / Normal / Hard",
+                resetType: dailyReset
             },
             {
                 name: "Horntail",
                 image: require("../static/images/horntail.png"),
-                difficulty: "Easy / Normal / Chaos"
+                difficulty: "Easy / Normal / Chaos",
+                resetType: dailyReset
             },
             {
                 name: "Arkarium",
                 image: require("../static/images/arkarium.png"),
-                difficulty: "Easy / Normal"
+                difficulty: "Easy / Normal",
+                resetType: dailyReset
             },
             {
                 name: "Pink Bean",
                 image: require("../static/images/pink_bean.png"),
-                difficulty: "Normal"
+                difficulty: "Normal",
+                resetType: dailyReset
             },
             {
                 name: "Gollux",
                 image: require("../static/images/gollux.png"),
-                difficulty: "Easy / Normal / Hard / Hell"
+                difficulty: "Easy / Normal / Hard / Hell",
+                resetType: dailyReset
             },
             {
                 name: "Ranmaru",
                 image: require("../static/images/ranmaru.png"),
-                difficulty: "Normal / Hard"
+                difficulty: "Normal / Hard",
+                resetType: dailyReset
             }
         ],
-        resetTime: dailyResetTime
+        quests: [
+
+        ]
+    },
+    weeklies: {
+        bosses: [
+            // Hard magnus, lotus, damien, lucid, black mage
+            {
+                name: "Magnus",
+                image: require("../static/images/magnus.png"),
+                difficulty: "Hard",
+                resetType: weeklyBossReset
+            }
+        ],
+        quests: [
+            // Scrapyard, Dark World Tree
+        ]
     }
 }
 

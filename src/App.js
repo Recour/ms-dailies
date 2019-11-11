@@ -1,7 +1,7 @@
 import React from 'react'
 import './App.css'
 
-// React Router imports
+// React Router components
 import {
   BrowserRouter as Router,
   Switch,
@@ -9,19 +9,24 @@ import {
   Redirect
 } from "react-router-dom"
 
-// Component imports
+// Own components
 import Header from './components/Header'
 import Dailies from './components/pages/Dailies'
 import Weeklies from './components/pages/Weeklies'
-import About from './components/pages/About'
+import Instructions from './components/pages/Instructions'
 import Time from './components/Time'
+import ResetHandler from './components/ResetHandler'
 import Footer from './components/Footer'
+
+// Background image
+import Image from './static/images/arcana_forest_wallpaper.png'
 
 // App
 function App() {
   return (
-    <div className="App">
+    <div className="App" style={{ backgroundImage: `url(${Image})`, backgroundSize:'cover' }}>
       <Time/>
+      <ResetHandler/>
 
       <Router>
         <Header/>
@@ -31,7 +36,7 @@ function App() {
 
           <Route path="/dailies" component={Dailies}/>
           <Route path="/weeklies" component={Weeklies}/>
-          <Route path="/about" component={About}/>
+          <Route path="/instructions" component={Instructions}/>
         </Switch>
       </Router>
 

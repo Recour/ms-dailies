@@ -1,44 +1,45 @@
 import React from 'react'
 import moment from 'moment'
-import momentdurationformat from 'moment-duration-format'
-import { connect } from 'react-redux';
+import { connect } from 'react-redux'
+import { getNextResetTime } from '../data/resetTimes'
+
+// Material UI components
 import { 
-    Divider,
     Typography,
-    Paper
+    Paper,
+    Box
 } from '@material-ui/core'
 
-class ResetTimer extends React.Component {
+class ResetCountdown extends React.Component {
     constructor(props) {
         super(props)
 
         this.renderCountdown = this.renderCountdown.bind(this)
-        this.minutesUntilReset = this.minutesUntilReset.bind(this)
+        this.getTimeUntilReset = this.getTimeUntilReset.bind(this)
     }
 
     render() {
         return (
             <Paper>
-                <Typography variant="body1">
-                    RESET IN
-                </Typography>
-                <Divider/>
+                <Box m={1}>
                 <Typography variant="h5">
                     { this.renderCountdown() }
                 </Typography>
+                </Box>
             </Paper>
         )
     }
 
     renderCountdown() {
         let currentTime = moment(this.props.currentTime)
-        let timeUntilReset = this.minutesUntilReset(currentTime)
+        console.log(currentTime)
+        let timeUntilReset = this.getTimeUntilReset(currentTime)
         return timeUntilReset.format('DD:HH:mm:ss')
-        
     }
 
-    minutesUntilReset(currentTime) {
-        let difference = this.props.resetTime.unix() - currentTime.unix()
+    getTimeUntilReset(currentTime) {
+        let nextReset = getNextResetTime(currentTime, this.props.resetType)
+        let difference = nextReset.unix() - currentTime.unix()
         let duration = moment.duration(difference, 'seconds')
         return duration
     }
@@ -48,4 +49,4 @@ const mapStateToProps = (state) => {
     return state.time
 }
 
-export default connect(mapStateToProps)(ResetTimer)
+export default connect(mapStateToProps)(ResetCountdown)

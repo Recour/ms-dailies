@@ -14,13 +14,12 @@ import {
     Box,
     Divider,
     ListSubheader,
-    Typography,
     Tooltip
 } from '@material-ui/core'
 import MenuIcon from '@material-ui/icons/Menu'
 import Filter1Icon from '@material-ui/icons/Filter1'
 import Filter7Icon from '@material-ui/icons/Filter7'
-import InfoIcon from '@material-ui/icons/Info'
+import HelpIcon from '@material-ui/icons/Help'
 
 // React Router imports
 import {
@@ -46,9 +45,9 @@ const menuLinks = {
     ],
     "Info": [
         {
-        text: "About",
-            to: "/about",
-            icon: <InfoIcon/>
+            text: "Instructions",
+            to: "/instructions",
+            icon: <HelpIcon/>
         },
     ]
 }
@@ -71,7 +70,8 @@ class Header extends React.Component {
             <MuiThemeProvider theme={theme}>
                 <AppBar 
                     position="sticky" 
-                    color="primary">
+                    color="primary"
+                    style={{ background: 'rgba(255,255,255,0.1)'}}>
                     <Toolbar
                         edge="start">
                         <Tooltip title="Menu">

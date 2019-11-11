@@ -7,13 +7,6 @@ const theme = createMuiTheme({
   palette: {
     primary: amber,
     secondary: blue
-  },
-  overrides: {
-    IconButton: {
-      primary: {
-        color: 'white',
-      },
-    },
   }
 });
 

@@ -1,6 +1,6 @@
-import React from 'react';
-import { connect } from 'react-redux';
-import { toggleDaily } from '../actions/dailiesActions';
+import React from 'react'
+import { connect } from 'react-redux'
+import { toggleDaily } from '../actions/dailiesActions'
 
 // Material UI imports
 import {
@@ -8,10 +8,13 @@ import {
     CardActionArea,
     CardMedia,
     CardContent,
-    Typography
+    Typography,
 } from '@material-ui/core';
 
-class DailyBoss extends React.Component {
+// Own components
+import ResetCountdown from './ResetCountdown'
+
+class BossCard extends React.Component {
     constructor(props) {
         super(props)
 
@@ -23,11 +26,14 @@ class DailyBoss extends React.Component {
             <Card style={ this.props.completed ? { backgroundColor: "lightgreen" } : { backgroundColor: "white" } }>
                 <CardActionArea
                 onClick={ this.handleClick }>
+                    <CardContent>
+                        <ResetCountdown resetType={this.props.boss.resetType}/>
+                    </CardContent>
+
                     <CardMedia
                         component="img"
                         height="210"
-                        image={ this.props.boss.image }
-                    />
+                        image={ this.props.boss.image }/>
 
                     <CardContent>
                         <Typography variant="h5" noWrap>
@@ -54,10 +60,10 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-      toggleDaily: (daily) => {
-        dispatch(toggleDaily(daily))
-      }
+        toggleDaily: (daily) => {
+            dispatch(toggleDaily(daily))
+        }
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(DailyBoss)
+export default connect(mapStateToProps, mapDispatchToProps)(BossCard)
