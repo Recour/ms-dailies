@@ -20,7 +20,7 @@ export const store = createStore(
 
 // Save state in localStorage on window close
 window.onbeforeunload = (() => {
-    // saveState(store.getState())
+    saveState(store.getState())
 })
 
 const checkForResetsLive = () => {
@@ -66,7 +66,7 @@ const checkForResetsSinceLastVisit = () => {
         })
     }
     catch {
-        
+
     }
 }
 
