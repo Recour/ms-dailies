@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { toggleDaily } from '../actions/dailiesActions'
+import { toggleObjective } from '../actions/objectivesActions'
 
 // Material UI imports
 import {
@@ -11,10 +11,7 @@ import {
     Typography,
 } from '@material-ui/core';
 
-// Own components
-import ResetCountdown from './ResetCountdown'
-
-class BossCard extends React.Component {
+class ObjectiveCard extends React.Component {
     constructor(props) {
         super(props)
 
@@ -26,22 +23,18 @@ class BossCard extends React.Component {
             <Card style={ this.props.completed ? { backgroundColor: "lightgreen" } : { backgroundColor: "white" } }>
                 <CardActionArea
                 onClick={ this.handleClick }>
-                    <CardContent>
-                        <ResetCountdown resetType={this.props.boss.resetType}/>
-                    </CardContent>
-
                     <CardMedia
                         component="img"
                         height="210"
-                        image={ this.props.boss.image }/>
+                        image={ this.props.objective.image }/>
 
                     <CardContent>
                         <Typography variant="h5" noWrap>
-                            { this.props.boss.name }
+                            { this.props.objective.name }
                         </Typography>
 
                         <Typography variant="body2" noWrap>
-                            { this.props.boss.difficulty }
+                            { this.props.objective.difficulty }
                         </Typography>
                     </CardContent>
                 </CardActionArea>
@@ -50,20 +43,16 @@ class BossCard extends React.Component {
     }
 
     handleClick() {
-        this.props.toggleDaily(this.props.boss.name);
+        this.props.toggleObjective(this.props.objective.name, this.props.objective.resetType);
     }
 }
 
 const mapStateToProps = (state, ownProps) => {
-    return state.dailies[ownProps.boss.name]
+    return state.objectives[ownProps.objective.resetType.name][ownProps.objective.name]
 }
 
-const mapDispatchToProps = (dispatch) => {
-    return {
-        toggleDaily: (daily) => {
-            dispatch(toggleDaily(daily))
-        }
-    }
+const mapDispatchToProps = {
+    toggleObjective
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(BossCard)
+export default connect(mapStateToProps, mapDispatchToProps)(ObjectiveCard)

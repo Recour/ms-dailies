@@ -17,9 +17,6 @@ import {
     Tooltip
 } from '@material-ui/core'
 import MenuIcon from '@material-ui/icons/Menu'
-import Filter1Icon from '@material-ui/icons/Filter1'
-import Filter7Icon from '@material-ui/icons/Filter7'
-import HelpIcon from '@material-ui/icons/Help'
 
 // React Router imports
 import {
@@ -29,28 +26,7 @@ import {
 // Theme imports
 import { withTheme } from '@material-ui/core/styles'
 import theme from '../style/theme'
-
-const menuLinks = {
-    "Quests": [
-        {
-            text: "Dailies",
-            to: "/dailies",
-            icon: <Filter1Icon/>
-        },
-        {
-            text: "Weeklies",
-            to: "/weeklies",
-            icon: <Filter7Icon/>
-        }
-    ],
-    "Info": [
-        {
-            text: "Instructions",
-            to: "/instructions",
-            icon: <HelpIcon/>
-        },
-    ]
-}
+import { menuLinks } from '../data/menu'
 
 class Header extends React.Component {
     constructor(props) {
@@ -84,7 +60,8 @@ class Header extends React.Component {
                         </Tooltip>
                         <img 
                         src={require('../static/images/logo_transparent.png')}
-                        height={50}/>
+                        height={50}
+                        alt="MapleStory Dailies"/>
                     </Toolbar>
                 </AppBar>
 
@@ -114,30 +91,30 @@ class Header extends React.Component {
         var menu = []
 
         // ListSubHeader for each subheader
-        Object.keys(menuLinks).forEach((subheader, index) => {
+        Object.keys(menuLinks).forEach((subheader) => {
             menu.push(
-                <ListSubheader key={index}>
+                <ListSubheader key={menu.length}>
                     {subheader}
                 </ListSubheader>
             )
             
             // ListItem for each link under subheader
-            menuLinks[subheader].forEach((link, index) => (
+            menuLinks[subheader].forEach((link) => {
                 menu.push(
                     <ListItem
                         onClick={ this.handleDrawerClose } 
                         component={Link} 
-                        to={ link.to }
-                        key={ index }
+                        to={link.to}
+                        key={menu.length}
                         button>
                         <ListItemIcon>
-                            { link.icon }
+                            {link.icon}
                         </ListItemIcon>
-                        <ListItemText primary={ link.text }/>
+                        <ListItemText primary={link.text}/>
                     </ListItem>
                 )
-            ))
-
+            })
+            
             menu.push(
                 <Divider key={menu.length}/>
             )

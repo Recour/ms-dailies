@@ -1,10 +1,10 @@
 import { combineReducers } from 'redux'
-import dailies from './dailies'
-import time from './time'
+import objectivesReducer from './objectives'
+import timeReducer from './time'
 
 const reducer = combineReducers({
-    dailies,
-    time
+    objectives: objectivesReducer,
+    time: timeReducer
 })
 
 export default reducer

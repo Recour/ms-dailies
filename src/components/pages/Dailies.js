@@ -2,7 +2,8 @@ import React from 'react'
 
 // Own components
 import GridPanel from '../GridPanel'
-import BossCard from '../BossCard'
+import ObjectiveCard from '../ObjectiveCard'
+import ResetCountdown from '../ResetCountdown'
 
 // Material UI components
 import { 
@@ -10,13 +11,14 @@ import {
     Grid
 } from '@material-ui/core'
 
-import data from '../../data/data'
+import { dailyObjectives } from '../../data/objectives'
+import { dailyReset } from '../../data/resetTypes'
 
 class Dailies extends React.Component {
     constructor(props) {
         super(props)
 
-        this.renderDailyBosses = this.renderDailyBosses.bind(this)
+        this.renderObjectives = this.renderObjectives.bind(this)
     }
 
     render() {
@@ -24,8 +26,12 @@ class Dailies extends React.Component {
             <Box m={3}>
                 <Grid container justify="center" spacing={2}>
                     <Grid item>
-                        <GridPanel title="Bosses">
-                            { this.renderDailyBosses(data.dailies.bosses) }
+                        <ResetCountdown resetType={dailyReset}/>
+                    </Grid>
+
+                    <Grid item>
+                        <GridPanel title="Dailies">
+                            { this.renderObjectives(dailyObjectives) }
                         </GridPanel>
                     </Grid>
                 </Grid>
@@ -33,9 +39,9 @@ class Dailies extends React.Component {
         )
     }
 
-    renderDailyBosses(dailyBosses) {
-        return dailyBosses.map((dailyBoss, index) =>
-            <BossCard boss={dailyBoss} key={index}/>
+    renderObjectives(objectives) {
+        return objectives.map((objective, index) =>
+            <ObjectiveCard objective={objective} key={index}/>
         )
     }
 }

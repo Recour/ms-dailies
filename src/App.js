@@ -14,8 +14,6 @@ import Header from './components/Header'
 import Dailies from './components/pages/Dailies'
 import Weeklies from './components/pages/Weeklies'
 import Instructions from './components/pages/Instructions'
-import Time from './components/Time'
-import ResetHandler from './components/ResetHandler'
 import Footer from './components/Footer'
 
 // Background image
@@ -25,9 +23,6 @@ import Image from './static/images/arcana_forest_wallpaper.png'
 function App() {
   return (
     <div className="App" style={{ backgroundImage: `url(${Image})`, backgroundSize:'cover' }}>
-      <Time/>
-      <ResetHandler/>
-
       <Router>
         <Header/>
 

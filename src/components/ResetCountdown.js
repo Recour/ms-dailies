@@ -1,7 +1,8 @@
 import React from 'react'
 import moment from 'moment'
+import momentdurationformat from 'moment-duration-format'
 import { connect } from 'react-redux'
-import { getNextResetTime } from '../data/resetTimes'
+import { getNextResetTime } from '../data/resetTypes'
 
 // Material UI components
 import { 
@@ -9,6 +10,8 @@ import {
     Paper,
     Box
 } from '@material-ui/core'
+
+momentdurationformat(moment)
 
 class ResetCountdown extends React.Component {
     constructor(props) {
@@ -31,14 +34,12 @@ class ResetCountdown extends React.Component {
     }
 
     renderCountdown() {
-        let currentTime = moment(this.props.currentTime)
-        console.log(currentTime)
-        let timeUntilReset = this.getTimeUntilReset(currentTime)
-        return timeUntilReset.format('DD:HH:mm:ss')
+        let timeUntilReset = this.getTimeUntilReset(moment(this.props.currentTime), this.props.resetType)
+        return timeUntilReset.format('DD[d] HH[h] mm[m] ss[s]')
     }
 
-    getTimeUntilReset(currentTime) {
-        let nextReset = getNextResetTime(currentTime, this.props.resetType)
+    getTimeUntilReset(currentTime, resetType) {
+        let nextReset = getNextResetTime(currentTime, resetType)
         let difference = nextReset.unix() - currentTime.unix()
         let duration = moment.duration(difference, 'seconds')
         return duration
