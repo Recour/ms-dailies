@@ -11,7 +11,7 @@ import {
     Grid
 } from '@material-ui/core'
 
-import { dailyObjectives } from '../../data/objectives'
+import { dailyBosses, dailyQuests } from '../../data/objectives'
 import { dailyReset } from '../../data/resetTypes'
 
 class Dailies extends React.Component {
@@ -26,12 +26,18 @@ class Dailies extends React.Component {
             <Box m={3}>
                 <Grid container justify="center" spacing={2}>
                     <Grid item>
-                        <ResetCountdown resetType={dailyReset}/>
+                        <ResetCountdown resetType={dailyReset} style={{ position: 'fixed' }}/>
                     </Grid>
 
-                    <Grid item>
-                        <GridPanel title="Dailies">
-                            { this.renderObjectives(dailyObjectives) }
+                    <Grid item xs={12}>
+                        <GridPanel title="Daily Bosses">
+                            { this.renderObjectives(dailyBosses) }
+                        </GridPanel>
+                    </Grid>
+
+                    <Grid item xs={12}>
+                        <GridPanel title="Daily Quests">
+                            { this.renderObjectives(dailyQuests) }
                         </GridPanel>
                     </Grid>
                 </Grid>

@@ -20,7 +20,7 @@ export const store = createStore(
 
 // Save state in localStorage on window close
 window.onbeforeunload = (() => {
-    saveState(store.getState())
+    // saveState(store.getState())
 })
 
 const checkForResetsLive = () => {
@@ -50,18 +50,24 @@ const setCurrentTimeLoop = () => {
 setCurrentTimeLoop()
 
 const checkForResetsSinceLastVisit = () => {
-    // Last visit is currentTime in persisted state
-    let lastVisit = moment.utc(persistedState.time.currentTime)
+    try {
+        // Last visit is currentTime in persisted state
+        let lastVisit = moment.utc(persistedState.time.currentTime)
 
-    // Reset objectives for each reset type if necessary
-    resetTypes.forEach((resetType) => {
-        let lastVisitResetTime = getNextResetTime(lastVisit, resetType)
-        let currentTime = moment.utc(store.getState().time.currentTime)
+        // Reset objectives for each reset type if necessary
+        resetTypes.forEach((resetType) => {
+            let lastVisitResetTime = getNextResetTime(lastVisit, resetType)
+            let currentTime = moment.utc(store.getState().time.currentTime)
 
-        if(lastVisitResetTime.isBefore(currentTime)) {
-            store.dispatch(resetAllObjectives(resetType))
-        }
-    })
+            if(lastVisitResetTime.isBefore(currentTime)) {
+                store.dispatch(resetAllObjectives(resetType))
+                alert(resetType.name + " happened while you were gone!")
+            }
+        })
+    }
+    catch {
+        
+    }
 }
 
 checkForResetsSinceLastVisit()

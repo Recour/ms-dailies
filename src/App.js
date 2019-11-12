@@ -15,9 +15,10 @@ import Dailies from './components/pages/Dailies'
 import Weeklies from './components/pages/Weeklies'
 import Instructions from './components/pages/Instructions'
 import Footer from './components/Footer'
+import OwnSnackbar from './components/OwnSnackbar'
 
 // Background image
-import Image from './static/images/arcana_forest_wallpaper.png'
+import Image from './static/images/maplestory2.png'
 
 // App
 function App() {
