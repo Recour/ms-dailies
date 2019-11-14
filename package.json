@@ -10,6 +10,7 @@
     "moment-duration-format": "^2.3.2",
     "react": "^16.11.0",
     "react-dom": "^16.11.0",
+    "react-parallax": "^2.2.4",
     "react-redux": "^7.1.1",
     "react-scripts": "3.2.0",
     "redux": "^4.0.4"

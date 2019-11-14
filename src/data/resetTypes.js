@@ -2,6 +2,7 @@ import moment from 'moment'
 
 // Daily reset time (00:00 UTC)
 export const dailyReset = {
+    interval: 'daily',
     name: 'Daily Reset',
     hour: 0,
     minute: 0,
@@ -11,8 +12,20 @@ export const dailyReset = {
 
 // Weekly boss reset time (Thursday 00:00 UTC)
 export const weeklyBossReset = {
+    interval: 'weekly',
     name: 'Weekly Boss Reset',
     day: 4,
+    hour: 0,
+    minute: 0,
+    second: 0,
+    millisecond: 0
+}
+
+// Weekly quest reset time (Monday 00:00 UTC)
+export const weeklyQuestReset = {
+    interval: 'weekly',
+    name: 'Weekly Quest Reset',
+    day: 1,
     hour: 0,
     minute: 0,
     second: 0,
@@ -22,15 +35,16 @@ export const weeklyBossReset = {
 // Reset types
 export const resetTypes = [
     dailyReset,
-    weeklyBossReset
+    weeklyBossReset,
+    weeklyQuestReset
 ]
 
 // Next reset time for given time
 export const getNextResetTime = (time, resetType) => {
     var nextReset = moment.utc(time)
 
-    switch(resetType) {
-        case dailyReset:
+    switch(resetType.interval) {
+        case 'daily':
             nextReset.hour(resetType.hour)
             nextReset.minute(resetType.minute)
             nextReset.second(resetType.second)
@@ -42,7 +56,7 @@ export const getNextResetTime = (time, resetType) => {
 
             break
         
-        case weeklyBossReset:
+        case 'weekly':
             nextReset.day(resetType.day)
             nextReset.hour(resetType.hour)
             nextReset.minute(resetType.minute)

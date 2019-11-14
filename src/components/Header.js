@@ -47,7 +47,7 @@ class Header extends React.Component {
                 <AppBar 
                     position="sticky" 
                     color="primary"
-                    style={{ background: 'rgba(255,255,255,0.1)'}}>
+                    style={{ background: 'rgba(254,200,40,1)'}}>
                     <Toolbar
                         edge="start">
                         <Tooltip title="Menu">

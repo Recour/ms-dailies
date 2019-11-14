@@ -1,18 +1,25 @@
 import React from 'react'
+import { withStyles } from '@material-ui/core/styles';
 
 // Own components
 import GridPanel from '../GridPanel'
 import ObjectiveCard from '../ObjectiveCard'
-import ResetCountdown from '../ResetCountdown'
 
 // Material UI components
 import { 
     Box,
-    Grid
+    Container
 } from '@material-ui/core'
 
 import { dailyBosses, dailyQuests } from '../../data/objectives'
 import { dailyReset } from '../../data/resetTypes'
+
+const styles = {
+    background: {
+        backgroundColor: 'rgb(245,245,245)',
+        borderRadius: '10px'
+    }
+}
 
 class Dailies extends React.Component {
     constructor(props) {
@@ -22,26 +29,28 @@ class Dailies extends React.Component {
     }
 
     render() {
-        return (
-            <Box m={3}>
-                <Grid container justify="center" spacing={2}>
-                    <Grid item>
-                        <ResetCountdown resetType={dailyReset} style={{ position: 'fixed' }}/>
-                    </Grid>
-
-                    <Grid item xs={12}>
-                        <GridPanel title="Daily Bosses">
+        const { classes } = this.props
+        return (                
+            <Container 
+            maxWidth="lg">
+                <Box 
+                py={[1, 2, 3, 4, 5]}>
+                    <Box
+                    className={classes.background}  
+                    p={[1, 2, 3, 4, 5]}>
+                        <GridPanel 
+                        title="Daily Bosses"
+                        resetType={dailyReset}>
                             { this.renderObjectives(dailyBosses) }
                         </GridPanel>
-                    </Grid>
-
-                    <Grid item xs={12}>
-                        <GridPanel title="Daily Quests">
+                        <GridPanel 
+                        title="Daily Quests"
+                        resetType={dailyReset}>
                             { this.renderObjectives(dailyQuests) }
                         </GridPanel>
-                    </Grid>
-                </Grid>
-            </Box>
+                    </Box>
+                </Box>
+            </Container> 
         )
     }
 
@@ -52,4 +61,4 @@ class Dailies extends React.Component {
     }
 }
 
-export default Dailies;
+export default withStyles(styles)(Dailies);

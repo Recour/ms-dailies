@@ -37,7 +37,7 @@ export default class Instructions extends React.Component {
                             <ListItemIcon><SaveIcon/></ListItemIcon>
                             <ListItemText 
                             primary={<strong>Your progress will be saved in your browser's storage,</strong>}
-                            secondary={"when you come back, your progress will still be there."}/>
+                            secondary={"when you come back, you'll know where you left off."}/>
                         </ListItem>
                     </List>
                 </Paper>

@@ -10,33 +10,30 @@ import {
 } from "react-router-dom"
 
 // Own components
+import Layout from './components/Layout'
 import Header from './components/Header'
 import Dailies from './components/pages/Dailies'
 import Weeklies from './components/pages/Weeklies'
 import Instructions from './components/pages/Instructions'
-import Footer from './components/Footer'
-import OwnSnackbar from './components/OwnSnackbar'
-
-// Background image
-import Image from './static/images/maplestory2.png'
+import StickyFooter from './components/StickyFooter'
 
 // App
 function App() {
   return (
-    <div className="App" style={{ backgroundImage: `url(${Image})`, backgroundSize:'cover' }}>
-      <Router>
-        <Header/>
+    <div className="App">
+      <Layout>
+        <Router>
+          <Header/>
+          <Switch>
+            <Redirect exact from="/" to="/dailies" />
 
-        <Switch>
-          <Redirect exact from="/" to="/dailies" />
-
-          <Route path="/dailies" component={Dailies}/>
-          <Route path="/weeklies" component={Weeklies}/>
-          <Route path="/instructions" component={Instructions}/>
-        </Switch>
-      </Router>
-
-      <Footer/>
+            <Route path="/dailies" component={Dailies}/>
+            <Route path="/weeklies" component={Weeklies}/>
+            <Route path="/instructions" component={Instructions}/>
+          </Switch>
+          <StickyFooter/>
+        </Router>
+      </Layout>
     </div>
   )
 }

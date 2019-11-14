@@ -7,10 +7,11 @@ import {
     ExpansionPanelDetails,
     Grid,
     Typography,
-    Divider,
-    Box
+    Divider
 } from '@material-ui/core'
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+
+import ResetCountdown from './ResetCountdown'
 
 export default class GridPanel extends React.Component {
     constructor(props) {
@@ -18,7 +19,6 @@ export default class GridPanel extends React.Component {
 
         this.state = {
             expanded: true
-            
         }
 
         this.handleChange = this.handleChange.bind(this)
@@ -31,20 +31,20 @@ export default class GridPanel extends React.Component {
             expanded={this.state.expanded}
             onChange={this.handleChange}>
                 <ExpansionPanelSummary
-                    expandIcon={ <ExpandMoreIcon /> }>
+                expandIcon={ <ExpandMoreIcon /> }>
                     <Typography variant="h6">
                         {this.props.title}
                     </Typography>
+                    <Divider></Divider>
+                    <ResetCountdown resetType={this.props.resetType}/>
                 </ExpansionPanelSummary>
 
                 <Divider/>
 
                 <ExpansionPanelDetails>
-                    <Box m={3}>
-                        <Grid container spacing={3}>
-                            { this.renderChildren() }
-                        </Grid>
-                    </Box>
+                    <Grid style={{ marginTop: '1px' }} container spacing={2}>
+                        { this.renderChildren() }
+                    </Grid>
                 </ExpansionPanelDetails>
             </ExpansionPanel>
         )
@@ -52,7 +52,7 @@ export default class GridPanel extends React.Component {
 
     renderChildren() {
         return this.props.children.map((child, index) => 
-            <Grid item xs={12} sm={6} md={3} lg={2} key={index}>
+            <Grid item xs={12} sm={4} md={3} lg={2} key={index}>
                 {child}
             </Grid>
         )

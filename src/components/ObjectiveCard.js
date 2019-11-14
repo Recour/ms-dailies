@@ -9,6 +9,7 @@ import {
     CardMedia,
     CardContent,
     Typography,
+    Box
 } from '@material-ui/core';
 
 class ObjectiveCard extends React.Component {
@@ -20,13 +21,15 @@ class ObjectiveCard extends React.Component {
 
     render() {
         return(
+            <Box boxShadow={3}>
             <Card style={ this.props.completed ? { backgroundColor: "lightgreen" } : { backgroundColor: "white" } }>
                 <CardActionArea
                 onClick={ this.handleClick }>
-                    <CardMedia
-                        component="img"
-                        height="210"
-                        image={ this.props.objective.image }/>
+                    <CardMedia>
+                        <img src={ this.props.objective.image }
+                        height="100%"
+                        width="100%"/>
+                    </CardMedia>
 
                     <CardContent>
                         <Typography variant="h5" noWrap>
@@ -34,11 +37,12 @@ class ObjectiveCard extends React.Component {
                         </Typography>
 
                         <Typography variant="body2" noWrap>
-                            { this.props.objective.difficulty }
+                            { this.props.objective.subtext }
                         </Typography>
                     </CardContent>
                 </CardActionArea>
             </Card>
+            </Box>
         );
     }
 
