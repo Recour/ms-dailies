@@ -7,11 +7,12 @@ import Image from '../static/images/maplestory2.png'
 const styles = {
     background: {
         backgroundImage: `url(${Image})`,
-        backgroundSize: '100% auto',
+        backgroundSize: 'cover',
         backgroundAttachment: 'fixed',
         display: 'flex',
         flexDirection: 'column',
-        // height: '100%'
+        overflowX: 'hidden',
+        height: '100%'
     }
 }
 

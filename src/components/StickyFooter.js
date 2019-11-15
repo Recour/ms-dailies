@@ -1,33 +1,56 @@
 import React from 'react';
-import Typography from '@material-ui/core/Typography';
-import { makeStyles } from '@material-ui/core/styles';
-import Container from '@material-ui/core/Container';
-import Link from '@material-ui/core/Link';
+import { withStyles } from '@material-ui/core/styles';
 
-function Copyright() {
-  return (
-    <Typography variant="caption" align="center">
-      {'Made by '}
-      <Link color="inherit" href="https://github.com/Recour/">
-        Recour
-      </Link>
-    </Typography>
-  );
-}
+import { 
+  Link,
+  Typography,
+  Paper,
+  Grid,
+  Box
+} from '@material-ui/core/'
 
-const useStyles = makeStyles(theme => ({
+const styles = {
   footer: {
     marginTop: 'auto',
     backgroundColor: 'transparent'
   },
-}));
-
-export default function StickyFooter() {
-    const classes = useStyles()
-
-    return (
-        <footer className={classes.footer}>
-            <Copyright />
-        </footer>
-    )
+  background: {
+    // width: '110px'
+  }
 }
+
+class StickyFooter extends React.Component {
+    render() {
+      const { classes } = this.props
+      return (
+        <footer className={classes.footer}>
+          <Grid 
+          container
+          justify="center">
+            <Grid 
+            item>
+              <Paper
+              className={classes.background}>
+                
+                  <Typography 
+                  variant="caption" 
+                  align="center">
+                    <Box m={1}>
+                    {'Made by '}
+                    <Link 
+                    color="inherit" 
+                    href="https://github.com/Recour/">
+                      Recour
+                    </Link>
+                    </Box>
+                  </Typography>
+                
+              </Paper>
+            </Grid>
+          </Grid>
+        </footer>
+      )
+    }
+}
+
+export default withStyles(styles)(StickyFooter)

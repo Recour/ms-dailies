@@ -1,15 +1,15 @@
 import React from 'react'
 import { withStyles } from '@material-ui/core/styles';
 
-// Own components
-import GridPanel from '../GridPanel'
-import ObjectiveCard from '../ObjectiveCard'
-
 // Material UI components
 import { 
     Box,
     Container
 } from '@material-ui/core'
+
+// Own components
+import GridPanel from '../GridPanel'
+import ObjectiveCard from '../ObjectiveCard'
 
 import { dailyBosses, dailyQuests } from '../../data/objectives'
 import { dailyReset } from '../../data/resetTypes'
@@ -30,7 +30,7 @@ class Dailies extends React.Component {
 
     render() {
         const { classes } = this.props
-        return (                
+        return (   
             <Container 
             maxWidth="lg">
                 <Box 
@@ -50,7 +50,7 @@ class Dailies extends React.Component {
                         </GridPanel>
                     </Box>
                 </Box>
-            </Container> 
+            </Container>
         )
     }
 

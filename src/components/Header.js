@@ -67,8 +67,7 @@ class Header extends React.Component {
 
                 <Drawer 
                     open={ this.state.drawerOpen }
-                    onClose={ this.handleDrawerClose }
-                    width="50%">
+                    onClose={ this.handleDrawerClose }>
                     <List>
                         <Box width={200}> 
                             { this.renderMenu(menuLinks) }
@@ -120,6 +119,7 @@ class Header extends React.Component {
             )
         })
 
+        console.log(menu)
         return menu
     }
 }

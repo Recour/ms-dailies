@@ -4,7 +4,7 @@ import Filter7Icon from '@material-ui/icons/Filter7'
 import HelpIcon from '@material-ui/icons/Help'
 
 export const menuLinks = {
-    "Quests": [
+    "Objectives": [
         {
             text: "Dailies",
             to: "/dailies",

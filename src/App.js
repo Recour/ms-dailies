@@ -21,9 +21,10 @@ import StickyFooter from './components/StickyFooter'
 function App() {
   return (
     <div className="App">
-      <Layout>
-        <Router>
+      <Router>
+        <Layout>
           <Header/>
+
           <Switch>
             <Redirect exact from="/" to="/dailies" />
 
@@ -31,9 +32,10 @@ function App() {
             <Route path="/weeklies" component={Weeklies}/>
             <Route path="/instructions" component={Instructions}/>
           </Switch>
+
           <StickyFooter/>
-        </Router>
-      </Layout>
+        </Layout>
+      </Router>
     </div>
   )
 }

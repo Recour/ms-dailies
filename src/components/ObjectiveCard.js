@@ -22,26 +22,27 @@ class ObjectiveCard extends React.Component {
     render() {
         return(
             <Box boxShadow={3}>
-            <Card style={ this.props.completed ? { backgroundColor: "lightgreen" } : { backgroundColor: "white" } }>
-                <CardActionArea
-                onClick={ this.handleClick }>
-                    <CardMedia>
-                        <img src={ this.props.objective.image }
-                        height="100%"
-                        width="100%"/>
-                    </CardMedia>
+                <Card style={ this.props.completed ? { backgroundColor: "lightgreen" } : { backgroundColor: "white" } }>
+                    <CardActionArea
+                    onClick={ this.handleClick }>
+                        <CardMedia>
+                            <img 
+                            src={ this.props.objective.image }
+                            height="100%"
+                            width="100%"/>
+                        </CardMedia>
 
-                    <CardContent>
-                        <Typography variant="h5" noWrap>
-                            { this.props.objective.name }
-                        </Typography>
+                        <CardContent>
+                            <Typography variant="h5" noWrap>
+                                { this.props.objective.name }
+                            </Typography>
 
-                        <Typography variant="body2" noWrap>
-                            { this.props.objective.subtext }
-                        </Typography>
-                    </CardContent>
-                </CardActionArea>
-            </Card>
+                            <Typography variant="body2" noWrap>
+                                { this.props.objective.subtext }
+                            </Typography>
+                        </CardContent>
+                    </CardActionArea>
+                </Card>
             </Box>
         );
     }

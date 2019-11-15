@@ -129,42 +129,42 @@ export const objectives = [
     {
         name: "Monster Park",
         image: require("../static/images/monster_park.png"),
-        subtext: "",
+        subtext: "2 Entries",
         objectiveType: "Quest",
         resetType: dailyReset
     },
     {
-        name: "Commerci Voyages",
+        name: "Commerci",
         image: require("../static/images/commerci_voyages.png"),
-        subtext: "",
+        subtext: "Voyages",
         objectiveType: "Quest",
         resetType: dailyReset
     },
     {
         name: "Legion",
         image: require("../static/images/legion.png"),
-        subtext: "",
+        subtext: "Raid",
         objectiveType: "Quest",
         resetType: dailyReset
     },
     {
         name: "Vanishing Journey Research",
         image: require("../static/images/vanishing_journey_research.png"),
-        subtext: "",
+        subtext: "5 Quests",
         objectiveType: "Quest",
         resetType: dailyReset
     },
     {
         name: "Hungry Muto",
         image: require("../static/images/hungry_muto.png"),
-        subtext: "",
+        subtext: "3 Entries",
         objectiveType: "Quest",
         resetType: dailyReset
     },
     {
         name: "Dream Defender",
         image: require("../static/images/dream_defender.png"),
-        subtext: "",
+        subtext: "3 Entries",
         objectiveType: "Quest",
         resetType: dailyReset
     },
@@ -175,6 +175,77 @@ export const objectives = [
         subtext: "Hard",
         objectiveType: "Boss",
         resetType: weeklyBossReset
+    },
+    {
+        name: "Pierre",
+        image: require("../static/images/pierre.png"),
+        subtext: "Chaos",
+        objectiveType: "Boss",
+        resetType: weeklyBossReset
+    },    
+    {
+        name: "Von Bon",
+        image: require("../static/images/von_bon.png"),
+        subtext: "Chaos",
+        objectiveType: "Boss",
+        resetType: weeklyBossReset
+    },
+    {
+        name: "Crimson Queen",
+        image: require("../static/images/crimson_queen.png"),
+        subtext: "Chaos",
+        objectiveType: "Boss",
+        resetType: weeklyBossReset
+    },
+    {
+        name: "Vellum",
+        image: require("../static/images/vellum.png"),
+        subtext: "Chaos",
+        objectiveType: "Boss",
+        resetType: weeklyBossReset
+    },
+    {
+        name: "Cygnus",
+        image: require("../static/images/cygnus.png"),
+        subtext: "Easy / Normal",
+        objectiveType: "Boss",
+        resetType: weeklyBossReset
+    },
+    {
+        name: "Lotus",
+        image: require("../static/images/lotus.png"),
+        subtext: "Normal / Hard",
+        objectiveType: "Boss",
+        resetType: weeklyBossReset
+    },
+    {
+        name: "Damien",
+        image: require("../static/images/damien.png"),
+        subtext: "Normal / Hard",
+        objectiveType: "Boss",
+        resetType: weeklyBossReset
+    },
+    {
+        name: "Lucid",
+        image: require("../static/images/lucid.png"),
+        subtext: "Normal / Hard",
+        objectiveType: "Boss",
+        resetType: weeklyBossReset
+    },
+    // Weekly Quests
+    {
+        name: "Haven",
+        image: require("../static/images/scrapyard.png"),
+        subtext: "5 Quests",
+        objectiveType: "Quest",
+        resetType: weeklyQuestReset
+    },
+    {
+        name: "Dark World Tree",
+        image: require("../static/images/dark_world_tree.png"),
+        subtext: "5 Quests",
+        objectiveType: "Quest",
+        resetType: weeklyQuestReset
     }
 ]
 

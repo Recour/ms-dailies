@@ -8,7 +8,8 @@ import { getNextResetTime } from '../data/resetTypes'
 import { 
     Typography,
     Paper,
-    Box
+    Box,
+    Divider
 } from '@material-ui/core'
 
 momentdurationformat(moment)
@@ -25,9 +26,15 @@ class ResetCountdown extends React.Component {
         return (
             <Paper>
                 <Box m={1}>
-                <Typography variant="h5">
-                    { this.renderCountdown() }
-                </Typography>
+                    <Typography
+                    variant="subtitle">
+                        {"RESET IN"}
+                    </Typography>
+                    <Divider/>
+                    <Typography 
+                    variant="h6">
+                        { this.renderCountdown() }
+                    </Typography>
                 </Box>
             </Paper>
         )
@@ -35,7 +42,7 @@ class ResetCountdown extends React.Component {
 
     renderCountdown() {
         let timeUntilReset = this.getTimeUntilReset(moment(this.props.currentTime), this.props.resetType)
-        return timeUntilReset.format('DD[d] HH[h] mm[m] ss[s]')
+        return timeUntilReset.format('DD[D] HH[H] mm[M] ss[S]')
     }
 
     getTimeUntilReset(currentTime, resetType) {
