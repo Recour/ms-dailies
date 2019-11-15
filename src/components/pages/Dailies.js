@@ -16,7 +16,7 @@ import { dailyReset } from '../../data/resetTypes'
 
 const styles = {
     background: {
-        backgroundColor: 'rgb(245,245,245)',
+        backgroundColor: 'rgb(240,240,240)',
         borderRadius: '10px'
     }
 }
@@ -38,11 +38,16 @@ class Dailies extends React.Component {
                     <Box
                     className={classes.background}  
                     p={[1, 2, 3, 4, 5]}>
-                        <GridPanel 
-                        title="Daily Bosses"
-                        resetType={dailyReset}>
-                            { this.renderObjectives(dailyBosses) }
-                        </GridPanel>
+                        <Box
+                        mb={[1, 2, 3, 4, 5]}>
+                            <GridPanel 
+                            title="Daily Bosses"
+                            resetType={dailyReset}>
+                                { this.renderObjectives(dailyBosses) }
+                            </GridPanel>
+                        </Box>
+
+
                         <GridPanel 
                         title="Daily Quests"
                         resetType={dailyReset}>

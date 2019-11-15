@@ -3,12 +3,10 @@ import { withStyles } from '@material-ui/core/styles';
 
 // Material UI components
 import {     
-    ExpansionPanel,
-    ExpansionPanelSummary,
-    ExpansionPanelDetails,
     Grid,
     Typography,
-    Divider
+    Paper,
+    Box
 } from '@material-ui/core'
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 
@@ -39,43 +37,39 @@ class GridPanel extends React.Component {
     render() {
         const { classes } = this.props
         return(
-            <ExpansionPanel
-            expanded={this.state.expanded}
-            onChange={this.handleChange}>
-                <ExpansionPanelSummary
-                expandIcon={ <ExpandMoreIcon /> }>
+            <Paper>
+                <Box p={3}>
                     <Grid 
                     container
-                    justify="space-between">
+                    direction="row"
+                    justify="space-between"
+                    alignItems="center">
                         <Grid
-                        item
-                        justify="center"
-                        alignItems="center">
+                        item>
                             <Typography
-                            variant="h6">
-                                {this.props.title}
+                            variant="h4">
+                                
+                                    {this.props.title}
+                                
                             </Typography>
                         </Grid>
 
-                        <Grid item>
+                        <Grid 
+                        item>
                             <ResetCountdown
                             className={classes.resetCountdown} 
                             resetType={this.props.resetType}/>
                         </Grid>
                     </Grid>
-                </ExpansionPanelSummary>
 
-                <Divider/>
-
-                <ExpansionPanelDetails>
                     <Grid 
                     className={classes.expansionPanelDetails} 
                     container 
                     spacing={2}>
                         { this.renderChildren() }
                     </Grid>
-                </ExpansionPanelDetails>
-            </ExpansionPanel>
+                </Box>
+            </Paper>
         )
     }
 

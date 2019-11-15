@@ -25,7 +25,8 @@ class ResetCountdown extends React.Component {
     render() {
         return (
             <Paper>
-                <Box m={1}>
+                <Box 
+                m={1}>
                     <Typography
                     variant="subtitle">
                         {"RESET IN"}

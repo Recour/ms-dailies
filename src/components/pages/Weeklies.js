@@ -38,11 +38,15 @@ class Weeklies extends React.Component {
                     <Box
                     className={classes.background}  
                     p={[1, 2, 3, 4, 5]}>
-                        <GridPanel 
-                        title="Weekly Bosses"
-                        resetType={weeklyBossReset}>
-                            { this.renderObjectives(weeklyBosses) }
-                        </GridPanel>
+                        <Box
+                        mb={[1, 2, 3, 4, 5]}>
+                            <GridPanel 
+                            title="Weekly Bosses"
+                            resetType={weeklyBossReset}>
+                                { this.renderObjectives(weeklyBosses) }
+                            </GridPanel>
+                        </Box>
+
                         <GridPanel 
                         title="Weekly Quests"
                         resetType={weeklyQuestReset}>
