@@ -8,7 +8,6 @@ import {
     Paper,
     Box
 } from '@material-ui/core'
-import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 
 import ResetCountdown from './ResetCountdown'
 import theme from '../style/theme';

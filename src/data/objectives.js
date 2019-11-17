@@ -127,44 +127,44 @@ export const objectives = [
     },
     // Daily Quests    
     {
-        name: "Monster Park",
-        image: require("../static/images/monster_park.png"),
-        subtext: "2 Entries",
-        objectiveType: "Quest",
-        resetType: dailyReset
-    },
-    {
-        name: "Commerci",
+        name: "Commerci Voyages",
         image: require("../static/images/commerci_voyages.png"),
-        subtext: "Voyages",
+        subtext: "Solo",
         objectiveType: "Quest",
         resetType: dailyReset
     },
     {
-        name: "Legion",
-        image: require("../static/images/legion.png"),
-        subtext: "Raid",
+        name: "Erda Spectrum",
+        image: require("../static/images/erda_spectrum.png"),
+        subtext: "Solo / Party",
         objectiveType: "Quest",
         resetType: dailyReset
     },
     {
         name: "Vanishing Journey Research",
         image: require("../static/images/vanishing_journey_research.png"),
-        subtext: "5 Quests",
+        subtext: "Solo / Party",
         objectiveType: "Quest",
         resetType: dailyReset
     },
     {
         name: "Hungry Muto",
         image: require("../static/images/hungry_muto.png"),
-        subtext: "3 Entries",
+        subtext: "Solo / Party",
         objectiveType: "Quest",
         resetType: dailyReset
     },
     {
         name: "Dream Defender",
         image: require("../static/images/dream_defender.png"),
-        subtext: "3 Entries",
+        subtext: "Solo",
+        objectiveType: "Quest",
+        resetType: dailyReset
+    },
+    {
+        name: "Spirit Savior",
+        image: require("../static/images/spirit_savior.png"),
+        subtext: "Solo",
         objectiveType: "Quest",
         resetType: dailyReset
     },
@@ -235,15 +235,15 @@ export const objectives = [
     // Weekly Quests
     {
         name: "Haven",
-        image: require("../static/images/scrapyard.png"),
-        subtext: "5 Quests",
+        image: require("../static/images/haven.png"),
+        subtext: "Solo / Party",
         objectiveType: "Quest",
         resetType: weeklyQuestReset
     },
     {
         name: "Dark World Tree",
         image: require("../static/images/dark_world_tree.png"),
-        subtext: "5 Quests",
+        subtext: "Solo / Party",
         objectiveType: "Quest",
         resetType: weeklyQuestReset
     }

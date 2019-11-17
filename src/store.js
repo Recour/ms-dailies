@@ -12,6 +12,11 @@ import {
 // Get state from localStorage if it is saved
 const persistedState = loadState()
 
+// TEMPORARY STATE CHECK
+if(persistedState.objectives["Daily Reset"].completedObjectives === undefined) {
+    persistedState = undefined
+}
+
 export const store = createStore(
     reducer,
     persistedState,
@@ -23,6 +28,7 @@ window.onbeforeunload = (() => {
     saveState(store.getState())
 })
 
+// Check for resets happening while app is open
 const checkForResetsLive = () => {
     let currentTime = moment.utc(store.getState().time.currentTime)
     var previousTime = moment.utc(currentTime).subtract(1, 'second')
@@ -37,18 +43,7 @@ const checkForResetsLive = () => {
     })
 }
 
-const setCurrentTimeLoop = () => {
-    let start = moment.utc()
-    store.dispatch(setCurrentTime(new moment.utc()))
-    checkForResetsLive()
-    let stop = moment.utc()
-    let delay = stop - start
-
-    setTimeout(setCurrentTimeLoop, 1000 - delay)
-}
-
-setCurrentTimeLoop()
-
+// Check for resets that happened since last visit
 const checkForResetsSinceLastVisit = () => {
     try {
         // Last visit is currentTime in persisted state
@@ -66,8 +61,20 @@ const checkForResetsSinceLastVisit = () => {
         })
     }
     catch {
-
+        
     }
 }
 
+// Loop every second
+const setCurrentTimeLoop = () => {
+    let start = moment.utc()
+    store.dispatch(setCurrentTime(new moment.utc()))
+    checkForResetsLive()
+    let stop = moment.utc()
+    let delay = stop - start
+
+    setTimeout(setCurrentTimeLoop, 1000 - delay)
+}
+
+setCurrentTimeLoop()
 checkForResetsSinceLastVisit()

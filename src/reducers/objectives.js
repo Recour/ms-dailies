@@ -1,6 +1,5 @@
 import _ from 'lodash';
 
-import { objectives } from '../data/objectives';
 import { 
     resetTypes
 } from '../data/resetTypes'
@@ -14,25 +13,32 @@ var initialState = {}
 
 // Add key for every reset type
 resetTypes.forEach((resetType) => {
-    initialState[resetType.name] = {}
-})
-
-// Add keys to all reset types for every objective
-objectives.forEach((objective) => {
-    initialState[objective.resetType.name][objective.name] = { completed: false }
+    initialState[resetType.name] = { 
+        completedObjectives: []
+    }
 })
 
 const objectivesReducer = (state = initialState, action) => {
     const newState = _.cloneDeep(state)
     switch (action.type) {
         case TOGGLE_OBJECTIVE:
-            newState[action.resetType.name][action.objective].completed = !newState[action.resetType.name][action.objective].completed
+            // If objective is in completedObjectives...
+            if(newState[action.resetType.name].completedObjectives.includes(action.objectiveName)) {
+                // ...remove the objective from completedObjectives
+                let index = newState[action.resetType.name].completedObjectives.indexOf(action.objectiveName)
+                newState[action.resetType.name].completedObjectives.splice(index, 1)
+            // If objective is not in completedObjectives...
+            } else {
+                // ...add objective to completedObjectives
+                newState[action.resetType.name].completedObjectives.push(action.objectiveName)
+            }
+            
             break
+
         case RESET_ALL_OBJECTIVES:
-            Object.keys(newState[action.resetType.name]).forEach((objective) => {
-                newState[action.resetType.name][objective].completed = false
-            })
+            newState[action.resetType.name].completedObjectives = []
             break
+
         default:
             break
     }

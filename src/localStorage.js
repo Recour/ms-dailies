@@ -16,7 +16,7 @@ export const saveState = (state) => {
       const serializedState = JSON.stringify(state);
       localStorage.setItem('state', serializedState);
     } catch {
-      // ignore write errors
+      alert("An error occurred while saving your progress.")
     }
 };
 

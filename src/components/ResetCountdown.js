@@ -28,7 +28,7 @@ class ResetCountdown extends React.Component {
                 <Box 
                 m={1}>
                     <Typography
-                    variant="subtitle">
+                    variant="subtitle1">
                         {"RESET IN"}
                     </Typography>
                     <Divider/>

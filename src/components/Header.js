@@ -118,8 +118,7 @@ class Header extends React.Component {
                 <Divider key={menu.length}/>
             )
         })
-
-        console.log(menu)
+        
         return menu
     }
 }

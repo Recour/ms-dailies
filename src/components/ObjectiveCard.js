@@ -15,7 +15,7 @@ import {
 
 const styles = {
     completed: {
-        backgroundColor: 'rgb(170,194,96)'
+        backgroundColor: 'rgb(156,182,93)'
     },
     uncompleted: {
         backgroundColor: "rgb(255,255,255)"
@@ -27,6 +27,7 @@ class ObjectiveCard extends React.Component {
         super(props)
 
         this.handleClick = this.handleClick.bind(this)
+        this.isObjectiveCompleted = this.isObjectiveCompleted.bind(this)
     }
 
     render() {
@@ -35,13 +36,15 @@ class ObjectiveCard extends React.Component {
             <Box 
             boxShadow={3}>
                 <Card 
-                className={this.props.completed ? classes.completed : classes.uncompleted}>
+                className={this.isObjectiveCompleted() ? classes.completed : classes.uncompleted}>
                     <CardActionArea
                     onClick={ this.handleClick }>
                         <CardMedia>
                             <img 
                             src={ this.props.objective.image }
-                            height="190px"/>
+                            alt={ this.props.objective.name }
+                            height="100%"
+                            width="100%"/>
                         </CardMedia>
 
                         <CardContent>
@@ -64,12 +67,24 @@ class ObjectiveCard extends React.Component {
     }
 
     handleClick() {
-        this.props.toggleObjective(this.props.objective.name, this.props.objective.resetType);
+        try {
+            this.props.toggleObjective(this.props.objective.name, this.props.objective.resetType);
+        } catch(error) {
+            alert(error)
+        }
+    }
+
+    isObjectiveCompleted() {
+        if(this.props.completedObjectives.includes(this.props.objective.name)) {
+            return true
+        } else {
+            return false
+        }
     }
 }
 
 const mapStateToProps = (state, ownProps) => {
-    return state.objectives[ownProps.objective.resetType.name][ownProps.objective.name]
+    return state.objectives[ownProps.objective.resetType.name]
 }
 
 const mapDispatchToProps = {
