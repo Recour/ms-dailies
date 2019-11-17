@@ -10,7 +10,7 @@ import {
 } from './data/resetTypes'
 
 // Get state from localStorage if it is saved
-const persistedState = loadState()
+var persistedState = loadState()
 
 // TEMPORARY STATE CHECK
 if(persistedState.objectives["Daily Reset"].completedObjectives === undefined) {
