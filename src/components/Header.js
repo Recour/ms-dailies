@@ -1,4 +1,5 @@
 import React from 'react'
+import { withStyles } from '@material-ui/core/styles';
 
 // Material UI imports
 import {
@@ -10,71 +11,101 @@ import {
     ListItem,
     ListItemIcon,
     ListItemText,
-    MuiThemeProvider,
     Box,
     Divider,
     ListSubheader,
     Tooltip
 } from '@material-ui/core'
 import MenuIcon from '@material-ui/icons/Menu'
+import SettingsIcon from '@material-ui/icons/Settings'
 
 // React Router imports
 import {
     Link
 } from "react-router-dom"
 
-// Theme imports
-import { withTheme } from '@material-ui/core/styles'
-import theme from '../style/theme'
+import SettingsDialog from './SettingsDialog'
+
 import { menuLinks } from '../data/menu'
+
+const styles = {
+    appBar: {
+        backgroundColor: 'rgb(255, 206, 77)'
+    },
+    settingsButton: {
+        marginLeft: 'auto'
+    }
+}
 
 class Header extends React.Component {
     constructor(props) {
         super(props)
 
         this.state = {
-            drawerOpen: false
+            drawerOpen: false,
+            settingsDialogOpen: false
         }
 
         this.handleDrawerOpen = this.handleDrawerOpen.bind(this)
         this.handleDrawerClose = this.handleDrawerClose.bind(this)
+        this.handleSettingsDialogOpen = this.handleSettingsDialogOpen.bind(this)
+        this.handleSettingsDialogClose = this.handleSettingsDialogClose.bind(this)
         this.renderMenu = this.renderMenu.bind(this)
     }
 
     render() {
+        const { classes } = this.props
         return(
-            <MuiThemeProvider theme={theme}>
+            <div>               
                 <AppBar 
-                    position="sticky" 
-                    color="primary"
-                    style={{ background: 'rgba(254,200,40,1)'}}>
+                position="sticky" 
+                color="primary"
+                className={classes.appBar}>
                     <Toolbar
-                        edge="start">
-                        <Tooltip title="Menu">
-                            <IconButton
+                    edge="start">
+                        <Box
+                        mr={2}
+                        ml={1}>
+                            <Tooltip 
+                            title="Menu">
+                                <IconButton
                                 onClick={this.handleDrawerOpen}
-                                edge="start"
-                                style={{marginRight: theme.spacing(2)}}>
-                                <MenuIcon/>
-                            </IconButton>
-                        </Tooltip>
-                        <img 
+                                edge="start">
+                                    <MenuIcon/>
+                                </IconButton>
+                            </Tooltip>
+                        </Box>
+
+                        <img
                         src={require('../static/images/logo_transparent.png')}
                         height={50}
                         alt="MapleStory Dailies"/>
+
+                        <Tooltip 
+                        title="Settings">
+                            <IconButton 
+                            className={classes.settingsButton}
+                            onClick={this.handleSettingsDialogOpen}>
+                                <SettingsIcon/>
+                            </IconButton>
+                        </Tooltip>
                     </Toolbar>
                 </AppBar>
 
                 <Drawer 
-                    open={ this.state.drawerOpen }
-                    onClose={ this.handleDrawerClose }>
-                    <List>
-                        <Box width={200}> 
-                            { this.renderMenu(menuLinks) }
-                        </Box>
-                    </List>
+                    open={this.state.drawerOpen}
+                    onClose={this.handleDrawerClose}>
+                    <Box width={200}> 
+                        <List>
+                            {this.renderMenu(menuLinks)}
+                        </List>
+                    </Box>
                 </Drawer>
-            </MuiThemeProvider>
+
+                <SettingsDialog 
+                open={this.state.settingsDialogOpen}
+                onClose={this.handleSettingsDialogClose}/>
+            </div>
         )
     }
 
@@ -84,6 +115,14 @@ class Header extends React.Component {
 
     handleDrawerClose() {
         this.setState({ drawerOpen: false })
+    }
+
+    handleSettingsDialogOpen() {
+        this.setState({ settingsDialogOpen: true })
+    }
+
+    handleSettingsDialogClose() {
+        this.setState({ settingsDialogOpen: false })
     }
 
     renderMenu(menuLinks) {
@@ -123,4 +162,4 @@ class Header extends React.Component {
     }
 }
 
-export default withTheme(Header);
+export default withStyles(styles)(Header);

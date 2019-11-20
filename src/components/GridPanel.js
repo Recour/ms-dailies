@@ -6,30 +6,20 @@ import {
     Grid,
     Typography,
     Paper,
-    Box
+    Box,
+    Divider
 } from '@material-ui/core'
 
 import ResetCountdown from './ResetCountdown'
-import theme from '../style/theme';
 
 const styles = {
-    expansionPanelDetails: {
-        marginTop: theme.spacing(1)
-    },
-    resetCountdown: {
-        marginRight: theme.spacing(1)
-    }
+
 }
 
 class GridPanel extends React.Component {
     constructor(props) {
         super(props)
 
-        this.state = {
-            expanded: true
-        }
-
-        this.handleChange = this.handleChange.bind(this)
         this.renderChildren = this.renderChildren.bind(this)
     }
 
@@ -38,35 +28,39 @@ class GridPanel extends React.Component {
         return(
             <Paper>
                 <Box p={3}>
-                    <Grid 
-                    container
-                    direction="row"
-                    justify="space-between"
-                    alignItems="center">
-                        <Grid
-                        item>
-                            <Typography
-                            variant="h4">
-                                
-                                    {this.props.title}
-                                
-                            </Typography>
-                        </Grid>
-
+                    <Box
+                    mb={1}>
                         <Grid 
-                        item>
-                            <ResetCountdown
-                            className={classes.resetCountdown} 
-                            resetType={this.props.resetType}/>
-                        </Grid>
-                    </Grid>
+                        container
+                        direction="row"
+                        justify="space-between"
+                        alignItems="center">
+                            <Grid
+                            item>
+                                <Typography
+                                variant="h4">
+                                        {this.props.title}
+                                </Typography>
+                            </Grid>
 
-                    <Grid 
-                    className={classes.expansionPanelDetails} 
-                    container 
-                    spacing={2}>
-                        { this.renderChildren() }
-                    </Grid>
+                            <Grid 
+                            item>
+                                <ResetCountdown
+                                resetType={this.props.resetType}/>
+                            </Grid>
+                        </Grid>
+                    </Box>
+
+                    <Divider/>
+
+                    <Box
+                    mt={2}>
+                        <Grid 
+                        container 
+                        spacing={2}>
+                            { this.renderChildren() }
+                        </Grid>
+                    </Box>
                 </Box>
             </Paper>
         )
@@ -78,10 +72,6 @@ class GridPanel extends React.Component {
                 {child}
             </Grid>
         )
-    }
-
-    handleChange() {
-        this.setState({ expanded: !this.state.expanded })
     }
 }
 

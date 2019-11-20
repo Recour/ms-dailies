@@ -21,6 +21,6 @@ export const menuLinks = {
             text: "Instructions",
             to: "/instructions",
             icon: <HelpIcon/>
-        },
+        }
     ]
 }

@@ -41,7 +41,7 @@ class Dailies extends React.Component {
                         <Box
                         mb={[1, 2, 3, 4, 5]}>
                             <GridPanel 
-                            title="Daily Bosses"
+                            title="DAILY BOSSES"
                             resetType={dailyReset}>
                                 { this.renderObjectives(dailyBosses) }
                             </GridPanel>
@@ -49,7 +49,7 @@ class Dailies extends React.Component {
 
 
                         <GridPanel 
-                        title="Daily Quests"
+                        title="DAILY QUESTS"
                         resetType={dailyReset}>
                             { this.renderObjectives(dailyQuests) }
                         </GridPanel>
