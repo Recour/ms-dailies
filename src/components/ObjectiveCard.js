@@ -49,7 +49,7 @@ class ObjectiveCard extends React.Component {
 
                         <CardContent>
                             <Typography 
-                            variant="h5" 
+                            variant="h6" 
                             noWrap>
                                 { this.props.objective.name }
                             </Typography>

@@ -2,7 +2,6 @@ import React from 'react'
 
 // Material UI components
 import { 
-    Container,
     Box,
     Paper,
     Grid,

@@ -3,6 +3,7 @@ import _ from 'lodash';
 import { 
     resetTypes
 } from '../data/resetTypes'
+
 import { 
     TOGGLE_OBJECTIVE,
     RESET_ALL_OBJECTIVES

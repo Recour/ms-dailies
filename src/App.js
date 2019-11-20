@@ -16,6 +16,7 @@ import Dailies from './components/pages/Dailies'
 import Weeklies from './components/pages/Weeklies'
 import Instructions from './components/pages/Instructions'
 import StickyFooter from './components/StickyFooter'
+import GlobalSnackbar from './components/GlobalSnackbar'
 
 // App
 function App() {
@@ -24,6 +25,8 @@ function App() {
       <Router>
         <Layout>
           <Header/>
+
+          <GlobalSnackbar/>
 
           <Switch>
             <Redirect exact from="/" to="/dailies" />
