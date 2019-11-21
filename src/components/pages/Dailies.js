@@ -16,7 +16,7 @@ import { dailyReset } from '../../data/resetTypes'
 
 const styles = {
     background: {
-        backgroundColor: 'rgb(240,240,240)',
+        backgroundColor: 'rgb(245,245,245)',
         borderRadius: '10px'
     }
 }

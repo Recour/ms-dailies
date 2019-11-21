@@ -7,8 +7,6 @@ import { getNextResetTime } from '../data/resetTypes'
 // Material UI components
 import { 
     Typography,
-    Paper,
-    Box,
     Divider
 } from '@material-ui/core'
 
@@ -24,20 +22,17 @@ class ResetCountdown extends React.Component {
 
     render() {
         return (
-            <Paper>
-                <Box 
-                m={1}>
-                    <Typography
-                    variant="subtitle1">
-                        {"RESET IN"}
-                    </Typography>
-                    <Divider/>
-                    <Typography 
-                    variant="h6">
-                        { this.renderCountdown() }
-                    </Typography>
-                </Box>
-            </Paper>
+            <div>
+                <Typography
+                variant="subtitle1">
+                    {"RESET IN"}
+                </Typography>
+                
+                <Typography 
+                variant="h6">
+                    { this.renderCountdown() }
+                </Typography>
+            </div>
         )
     }
 

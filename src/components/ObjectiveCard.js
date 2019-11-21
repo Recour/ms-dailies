@@ -34,7 +34,7 @@ class ObjectiveCard extends React.Component {
         const { classes } = this.props
         return(
             <Box 
-            boxShadow={3}>
+            boxShadow={0}>
                 <Card 
                 className={this.isObjectiveCompleted() ? classes.completed : classes.uncompleted}>
                     <CardActionArea

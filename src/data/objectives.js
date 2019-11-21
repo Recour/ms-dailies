@@ -132,6 +132,13 @@ export const objectives = [
         subtext: "Solo",
         objectiveType: "Quest",
         resetType: dailyReset
+    },    
+    {
+        name: "Vanishing Journey",
+        image: require("../static/images/vanishing_journey.png"),
+        subtext: "Solo / Party",
+        objectiveType: "Quest",
+        resetType: dailyReset
     },
     {
         name: "Erda Spectrum",
@@ -141,8 +148,8 @@ export const objectives = [
         resetType: dailyReset
     },
     {
-        name: "Vanishing Journey Research",
-        image: require("../static/images/vanishing_journey_research.png"),
+        name: "Chu Chu Island",
+        image: require("../static/images/chu_chu_island.png"),
         subtext: "Solo / Party",
         objectiveType: "Quest",
         resetType: dailyReset
@@ -155,6 +162,13 @@ export const objectives = [
         resetType: dailyReset
     },
     {
+        name: "Lachelein",
+        image: require("../static/images/lachelein.png"),
+        subtext: "Solo / Party",
+        objectiveType: "Quest",
+        resetType: dailyReset
+    },
+    {
         name: "Dream Defender",
         image: require("../static/images/dream_defender.png"),
         subtext: "Solo",
@@ -162,9 +176,30 @@ export const objectives = [
         resetType: dailyReset
     },
     {
+        name: "Arcana",
+        image: require("../static/images/arcana.png"),
+        subtext: "Solo / Party",
+        objectiveType: "Quest",
+        resetType: dailyReset
+    },
+    {
         name: "Spirit Savior",
         image: require("../static/images/spirit_savior.png"),
         subtext: "Solo",
+        objectiveType: "Quest",
+        resetType: dailyReset
+    },
+    {
+        name: "Morass",
+        image: require("../static/images/morass.png"),
+        subtext: "Solo / Party",
+        objectiveType: "Quest",
+        resetType: dailyReset
+    },
+    {
+        name: "Esfera",
+        image: require("../static/images/esfera.png"),
+        subtext: "Solo / Party",
         objectiveType: "Quest",
         resetType: dailyReset
     },
@@ -232,6 +267,28 @@ export const objectives = [
         objectiveType: "Boss",
         resetType: weeklyBossReset
     },
+    {
+        name: "Will",
+        image: require("../static/images/will.png"),
+        subtext: "Normal / Hard",
+        objectiveType: "Boss",
+        resetType: weeklyBossReset
+    },
+    {
+        name: "Gloom",
+        image: require("../static/images/gloom.png"),
+        subtext: "Normal",
+        objectiveType: "Boss",
+        resetType: weeklyBossReset
+    },
+    {
+        name: "Darknell",
+        image: require("../static/images/darknell.png"),
+        subtext: "Normal",
+        objectiveType: "Boss",
+        resetType: weeklyBossReset
+    },
+    // TODO: add Black Mage
     // Weekly Quests
     {
         name: "Haven",
