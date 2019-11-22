@@ -33,36 +33,34 @@ class ObjectiveCard extends React.Component {
     render() {
         const { classes } = this.props
         return(
-            <Box 
-            boxShadow={0}>
-                <Card 
-                className={this.isObjectiveCompleted() ? classes.completed : classes.uncompleted}>
-                    <CardActionArea
-                    onClick={ this.handleClick }>
-                        <CardMedia>
-                            <img 
-                            src={ this.props.objective.image }
-                            alt={ this.props.objective.name }
-                            height="100%"
-                            width="100%"/>
-                        </CardMedia>
+            <Card
+            hidden={this.props.disabledObjectives.includes(this.props.objective.name)} 
+            className={this.isObjectiveCompleted() ? classes.completed : classes.uncompleted}>
+                <CardActionArea
+                onClick={ this.handleClick }>
+                    <CardMedia>
+                        <img 
+                        src={ this.props.objective.image }
+                        alt={ this.props.objective.name }
+                        height="100%"
+                        width="100%"/>
+                    </CardMedia>
 
-                        <CardContent>
-                            <Typography 
-                            variant="h6" 
-                            noWrap>
-                                { this.props.objective.name }
-                            </Typography>
+                    <CardContent>
+                        <Typography 
+                        variant="h6" 
+                        noWrap>
+                            { this.props.objective.name }
+                        </Typography>
 
-                            <Typography 
-                            variant="body2" 
-                            noWrap>
-                                { this.props.objective.subtext }
-                            </Typography>
-                        </CardContent>
-                    </CardActionArea>
-                </Card>
-            </Box>
+                        <Typography 
+                        variant="body2" 
+                        noWrap>
+                            { this.props.objective.subtext }
+                        </Typography>
+                    </CardContent>
+                </CardActionArea>
+            </Card>
         );
     }
 

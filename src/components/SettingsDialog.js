@@ -14,7 +14,6 @@ import {
     FormGroup,
     FormControlLabel
 } from '@material-ui/core'
-import SettingsIcon from '@material-ui/icons/Settings'
 
 import { objectives } from '../data/objectives'
 
@@ -37,7 +36,6 @@ class SettingsDialog extends React.Component {
             open={this.props.open}
             onClose={this.props.onClose}>
                 <DialogTitle>
-                    <SettingsIcon/>
                     <Typography>
                         Settings
                     </Typography>
@@ -62,15 +60,16 @@ class SettingsDialog extends React.Component {
             label={objective.name}
             control={
                 <Checkbox 
-                checked={this.props[objective.resetType.name].disabledObjectives.includes(objective.name)} 
-                onChange={this.handleChange(objective)}/>
+                checked={!this.props[objective.resetType.name].disabledObjectives.includes(objective.name)}
+                onChange={this.handleChange(objective)}
+                value={objective}/>
             }
             key={index}/>
         )
     }
 
-    handleChange(objective) {
-        // this.props.toggleObjectiveDisabled(objective.resetType, objective.name)
+    handleChange = objective => event => {
+        this.props.toggleObjectiveDisabled(objective.name, objective.resetType)
     }
 }
 

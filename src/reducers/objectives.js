@@ -42,7 +42,7 @@ const objectivesReducer = (state = initialState, action) => {
             newState[action.resetType.name].completedObjectives = []
             break
 
-        case TOGGLE_OBJECTIVE_COMPLETED:
+        case TOGGLE_OBJECTIVE_DISABLED:
             // If objective is in disabledObjectives...
             if(newState[action.resetType.name].disabledObjectives.includes(action.objectiveName)) {
                 // ...remove the objective from disabledObjectives
