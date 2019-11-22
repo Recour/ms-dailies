@@ -1,7 +1,7 @@
 import React from 'react'
 import { withStyles } from '@material-ui/core/styles';
 import { connect } from 'react-redux'
-import { toggleObjective } from '../actions/objectivesActions'
+import { toggleObjectiveCompleted } from '../actions/objectivesActions'
 
 // Material UI imports
 import {
@@ -68,7 +68,7 @@ class ObjectiveCard extends React.Component {
 
     handleClick() {
         try {
-            this.props.toggleObjective(this.props.objective.name, this.props.objective.resetType);
+            this.props.toggleObjectiveCompleted(this.props.objective.name, this.props.objective.resetType);
         } catch(error) {
             alert(error)
         }
@@ -88,7 +88,7 @@ const mapStateToProps = (state, ownProps) => {
 }
 
 const mapDispatchToProps = {
-    toggleObjective
+    toggleObjectiveCompleted
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(withStyles(styles)(ObjectiveCard))

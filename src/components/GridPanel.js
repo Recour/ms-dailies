@@ -34,7 +34,7 @@ class GridPanel extends React.Component {
                         container
                         direction="row"
                         justify="space-between"
-                        alignItems="center">
+                        alignItems="flex-end">
                             <Grid
                             item>
                                 <Typography

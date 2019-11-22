@@ -29,7 +29,7 @@ class ResetCountdown extends React.Component {
                 </Typography>
                 
                 <Typography 
-                variant="h6">
+                variant="h5">
                     { this.renderCountdown() }
                 </Typography>
             </div>
