@@ -45,6 +45,7 @@ class SettingsDialog extends React.Component {
 
                 <DialogContent>
                     <DialogContentText>
+                        Visible objectives:
                         <FormGroup>
                             {this.renderCheckboxes(objectives)}
                         </FormGroup>

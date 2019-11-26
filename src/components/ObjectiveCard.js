@@ -34,7 +34,6 @@ class ObjectiveCard extends React.Component {
         const { classes } = this.props
         return(
             <Card
-            hidden={this.props.disabledObjectives.includes(this.props.objective.name)} 
             className={this.isObjectiveCompleted() ? classes.completed : classes.uncompleted}>
                 <CardActionArea
                 onClick={ this.handleClick }>

@@ -1,5 +1,6 @@
 import React from 'react'
-import { withStyles } from '@material-ui/core/styles';
+import { withStyles } from '@material-ui/core/styles'
+import { connect } from 'react-redux'
 
 // Own components
 import GridPanel from '../GridPanel'
@@ -59,10 +60,20 @@ class Weeklies extends React.Component {
     }
 
     renderObjectives(objectives) {
-        return objectives.map((objective, index) =>
+        var objectivesToRender = objectives.filter((objective) => {
+            if(!this.props.disabledObjectives.includes(objective.name)) {
+                return objective
+            }
+        })
+
+        return objectivesToRender.map((objective, index) =>
             <ObjectiveCard objective={objective} key={index}/>
         )
     }
 }
 
-export default withStyles(styles)(Weeklies)
+const mapStateToProps = (state) => {
+    return state.objectives["Weekly Boss Reset"] // TODO: add all states & make dynamic
+} 
+
+export default withStyles(styles)(connect(mapStateToProps)(Weeklies))

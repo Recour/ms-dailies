@@ -18,9 +18,13 @@ import Instructions from './components/pages/Instructions'
 import StickyFooter from './components/StickyFooter'
 import GlobalSnackbar from './components/GlobalSnackbar'
 
+import { ThemeProvider } from '@material-ui/core/styles'
+import theme from './style/theme'
+
 // App
 function App() {
   return (
+    <ThemeProvider theme={theme}>
     <div className="App">
       <Router>
         <Layout>
@@ -40,6 +44,7 @@ function App() {
         </Layout>
       </Router>
     </div>
+    </ThemeProvider>
   )
 }
 

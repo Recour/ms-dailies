@@ -1,5 +1,6 @@
 import React from 'react'
 import { withStyles } from '@material-ui/core/styles';
+import { connect } from 'react-redux'
 
 // Material UI components
 import { 
@@ -60,10 +61,20 @@ class Dailies extends React.Component {
     }
 
     renderObjectives(objectives) {
-        return objectives.map((objective, index) =>
+        var objectivesToRender = objectives.filter((objective) => {
+            if(!this.props.disabledObjectives.includes(objective.name)) {
+                return objective
+            }
+        })
+
+        return objectivesToRender.map((objective, index) =>
             <ObjectiveCard objective={objective} key={index}/>
         )
     }
 }
 
-export default withStyles(styles)(Dailies);
+const mapStateToProps = (state) => {
+    return state.objectives["Daily Reset"]
+}
+
+export default withStyles(styles)(connect(mapStateToProps)(Dailies))
