@@ -39,6 +39,17 @@ export const resetTypes = [
     weeklyQuestReset
 ]
 
+// Daily reset types
+export const resetTypesDailies = [
+    dailyReset
+]
+
+// Weekly reset types
+export const resetTypesWeeklies = [
+    weeklyBossReset,
+    weeklyQuestReset
+]
+
 // Next reset time for given time
 export const getNextResetTime = (time, resetType) => {
     var nextReset = moment.utc(time)

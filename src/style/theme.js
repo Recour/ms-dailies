@@ -12,7 +12,8 @@ const theme = createMuiTheme({
     fontFamily: [
       '"Titillium Web", sans-serif',
     ].join(','),
-  }
+  },
+  shadows: Array(25).fill('none')
 });
 
 export default responsiveFontSizes(theme);

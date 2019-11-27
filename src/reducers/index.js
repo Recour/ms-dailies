@@ -1,12 +1,14 @@
 import { combineReducers } from 'redux'
-import objectivesReducer from './objectives'
-import timeReducer from './time'
-import globalSnackbarReducer from './globalSnackbar'
+import completedObjectivesReducer from './completedObjectivesReducer'
+import disabledObjectivesReducer from './disabledObjectivesReducer'
+import globalSnackbarReducer from './globalSnackbarReducer'
+import timeReducer from './timeReducer'
 
 const reducer = combineReducers({
-    objectives: objectivesReducer,
-    time: timeReducer,
-    globalSnackbar: globalSnackbarReducer
+    completedObjectives: completedObjectivesReducer,
+    disabledObjectives: disabledObjectivesReducer,
+    globalSnackbar: globalSnackbarReducer,
+    time: timeReducer
 })
 
 export default reducer

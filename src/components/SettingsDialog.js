@@ -1,7 +1,7 @@
 import React from 'react'
 import { withStyles } from '@material-ui/core/styles'
 import { connect } from 'react-redux'
-import { toggleObjectiveDisabled } from '../actions/objectivesActions'
+import { toggleObjectiveDisabled } from '../actions/disabledObjectivesActions'
 
 import { 
     Dialog, 
@@ -12,10 +12,14 @@ import {
     Divider,
     Checkbox,
     FormGroup,
-    FormControlLabel
+    FormControlLabel,
+    Grid,
+    Container,
+    Box
 } from '@material-ui/core'
 
-import { objectives } from '../data/objectives'
+import { objectiveTypes } from '../data/objectives'
+import { resetTypes } from '../data/resetTypes'
 
 const styles = {
 
@@ -26,6 +30,7 @@ class SettingsDialog extends React.Component {
         super(props)
 
         this.renderCheckboxes = this.renderCheckboxes.bind(this)
+        this.renderGrids = this.renderGrids.bind(this)
         this.handleChange = this.handleChange.bind(this)
     }
 
@@ -34,7 +39,9 @@ class SettingsDialog extends React.Component {
         return(
             <Dialog
             open={this.props.open}
-            onClose={this.props.onClose}>
+            onClose={this.props.onClose}
+            fullWidth={true}
+            maxWidth = {'md'}>
                 <DialogTitle>
                     <Typography>
                         Settings
@@ -45,13 +52,42 @@ class SettingsDialog extends React.Component {
 
                 <DialogContent>
                     <DialogContentText>
-                        Visible objectives:
-                        <FormGroup>
-                            {this.renderCheckboxes(objectives)}
-                        </FormGroup>
+                        <Box
+                        my={1}>
+                            <Typography 
+                            variant="h5">
+                                Visible objectives
+                            </Typography>
+                        </Box>
+
+                        <Grid 
+                        container>
+                            {this.renderGrids(objectiveTypes)}
+                        </Grid>
                     </DialogContentText>
                 </DialogContent>
             </Dialog>
+        )
+    }
+
+    renderGrids(objectiveTypes) {
+        return objectiveTypes.map((objectiveType, index) => 
+            <Grid
+            item
+            xs={12}
+            sm={3}
+            key={index}>
+                <Container>
+                <Typography
+                variant="h6">
+                    {objectiveType.name}
+                </Typography>
+                
+                <FormGroup>
+                    {this.renderCheckboxes(objectiveType.objectives)}
+                </FormGroup>
+                </Container>
+            </Grid>
         )
     }
 
@@ -61,7 +97,7 @@ class SettingsDialog extends React.Component {
             label={objective.name}
             control={
                 <Checkbox 
-                checked={!this.props[objective.resetType.name].disabledObjectives.includes(objective.name)}
+                checked={!this.props.disabledObjectives[objective.resetType.name].includes(objective.name)}
                 onChange={this.handleChange(objective)}
                 value={objective}/>
             }
@@ -75,7 +111,9 @@ class SettingsDialog extends React.Component {
 }
 
 const mapStateToProps = (state) => {
-    return state.objectives
+    return {
+        disabledObjectives: state.disabledObjectives
+    }
 }
 
 const mapDispatchToProps = {

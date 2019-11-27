@@ -1,6 +1,7 @@
 import React from 'react'
 import { withStyles } from '@material-ui/core/styles'
 import { connect } from 'react-redux'
+import { toggleObjectiveCompleted } from '../../actions/completedObjectivesActions'
 
 // Own components
 import GridPanel from '../GridPanel'
@@ -13,7 +14,7 @@ import {
 } from '@material-ui/core'
 
 import { weeklyBosses, weeklyQuests } from '../../data/objectives'
-import { weeklyBossReset, weeklyQuestReset } from '../../data/resetTypes'
+import { resetTypesWeeklies, weeklyBossReset, weeklyQuestReset } from '../../data/resetTypes'
 
 const styles = {
     background: {
@@ -44,14 +45,14 @@ class Weeklies extends React.Component {
                             <GridPanel 
                             title="WEEKLY BOSSES"
                             resetType={weeklyBossReset}>
-                                { this.renderObjectives(weeklyBosses) }
+                                {this.renderObjectives(weeklyBosses.objectives, weeklyBossReset)}
                             </GridPanel>
                         </Box>
 
                         <GridPanel 
                         title="WEEKLY QUESTS"
                         resetType={weeklyQuestReset}>
-                            { this.renderObjectives(weeklyQuests) }
+                            {this.renderObjectives(weeklyQuests.objectives, weeklyQuestReset)}
                         </GridPanel>
                     </Box>
                 </Box>
@@ -59,21 +60,39 @@ class Weeklies extends React.Component {
         )
     }
 
-    renderObjectives(objectives) {
+    renderObjectives(objectives, resetType) {
         var objectivesToRender = objectives.filter((objective) => {
-            if(!this.props.disabledObjectives.includes(objective.name)) {
+            if(!this.props[resetType.name].disabledObjectives.includes(objective.name)) {
                 return objective
             }
         })
 
         return objectivesToRender.map((objective, index) =>
-            <ObjectiveCard objective={objective} key={index}/>
+            <ObjectiveCard 
+            objective={objective} 
+            key={index} 
+            toggleObjectiveCompleted={this.props.toggleObjectiveCompleted}
+            isCompleted={this.props[objective.resetType.name].completedObjectives.includes(objective.name)}/>
         )
     }
 }
 
 const mapStateToProps = (state) => {
-    return state.objectives["Weekly Boss Reset"] // TODO: add all states & make dynamic
-} 
+    var stateToMap = {}
 
-export default withStyles(styles)(connect(mapStateToProps)(Weeklies))
+    resetTypesWeeklies.forEach((resetType) => {
+        stateToMap[resetType.name] = {
+            completedObjectives: state.completedObjectives[resetType.name],
+            disabledObjectives: state.disabledObjectives[resetType.name]
+        }
+    })
+
+    return stateToMap
+}
+
+const mapDispatchToProps = {
+    toggleObjectiveCompleted
+}
+
+
+export default withStyles(styles)(connect(mapStateToProps, mapDispatchToProps)(Weeklies))

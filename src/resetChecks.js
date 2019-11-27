@@ -1,6 +1,6 @@
 import moment from 'moment'
 import { store, persistedState } from './store'
-import { resetAllCompletedObjectives } from './actions/objectivesActions'
+import { resetAllCompletedObjectives } from './actions/completedObjectivesActions'
 import { openGlobalSnackbar } from './actions/globalSnackbarActions'
 
 import { getNextResetTime, resetTypes } from './data/resetTypes'

@@ -3,40 +3,39 @@ import moment from 'moment'
 import momentdurationformat from 'moment-duration-format'
 import { connect } from 'react-redux'
 import { getNextResetTime } from '../data/resetTypes'
+import { withStyles } from '@material-ui/core/styles'
 
 // Material UI components
 import { 
     Typography,
-    Divider
+    Grid
 } from '@material-ui/core'
 
 momentdurationformat(moment)
+
+const styles = {
+    
+}
 
 class ResetCountdown extends React.Component {
     constructor(props) {
         super(props)
 
-        this.renderCountdown = this.renderCountdown.bind(this)
+        this.getCountdown = this.getCountdown.bind(this)
         this.getTimeUntilReset = this.getTimeUntilReset.bind(this)
     }
 
     render() {
+        const { classes } = this.props
         return (
-            <div>
-                <Typography
-                variant="subtitle1">
-                    {"RESET IN"}
-                </Typography>
-                
-                <Typography 
-                variant="h5">
-                    { this.renderCountdown() }
-                </Typography>
-            </div>
+            <Typography
+            variant="subtitle1">
+                {"RESET IN " + this.getCountdown()}
+            </Typography>
         )
     }
 
-    renderCountdown() {
+    getCountdown() {
         let timeUntilReset = this.getTimeUntilReset(moment(this.props.currentTime), this.props.resetType)
         return timeUntilReset.format('DD[D] HH[H] mm[M] ss[S]')
     }
@@ -53,4 +52,4 @@ const mapStateToProps = (state) => {
     return state.time
 }
 
-export default connect(mapStateToProps)(ResetCountdown)
+export default withStyles(styles)(connect(mapStateToProps)(ResetCountdown))

@@ -1,6 +1,7 @@
 import React from 'react'
 import { withStyles } from '@material-ui/core/styles';
 import { connect } from 'react-redux'
+import { toggleObjectiveCompleted } from '../../actions/completedObjectivesActions'
 
 // Material UI components
 import { 
@@ -12,8 +13,9 @@ import {
 import GridPanel from '../GridPanel'
 import ObjectiveCard from '../ObjectiveCard'
 
+// Data
 import { dailyBosses, dailyQuests } from '../../data/objectives'
-import { dailyReset } from '../../data/resetTypes'
+import { resetTypesDailies, dailyReset } from '../../data/resetTypes'
 
 const styles = {
     background: {
@@ -44,15 +46,14 @@ class Dailies extends React.Component {
                             <GridPanel 
                             title="DAILY BOSSES"
                             resetType={dailyReset}>
-                                { this.renderObjectives(dailyBosses) }
+                                {this.renderObjectives(dailyBosses.objectives, dailyReset)}
                             </GridPanel>
                         </Box>
-
 
                         <GridPanel 
                         title="DAILY QUESTS"
                         resetType={dailyReset}>
-                            { this.renderObjectives(dailyQuests) }
+                            {this.renderObjectives(dailyQuests.objectives, dailyReset)}
                         </GridPanel>
                     </Box>
                 </Box>
@@ -60,21 +61,38 @@ class Dailies extends React.Component {
         )
     }
 
-    renderObjectives(objectives) {
+    renderObjectives(objectives, resetType) {
         var objectivesToRender = objectives.filter((objective) => {
-            if(!this.props.disabledObjectives.includes(objective.name)) {
+            if(!this.props[resetType.name].disabledObjectives.includes(objective.name)) {
                 return objective
             }
         })
 
         return objectivesToRender.map((objective, index) =>
-            <ObjectiveCard objective={objective} key={index}/>
+            <ObjectiveCard 
+            objective={objective} 
+            key={index} 
+            toggleObjectiveCompleted={this.props.toggleObjectiveCompleted}
+            isCompleted={this.props[objective.resetType.name].completedObjectives.includes(objective.name)}/>
         )
     }
 }
 
 const mapStateToProps = (state) => {
-    return state.objectives["Daily Reset"]
+    var stateToMap = {}
+
+    resetTypesDailies.forEach((resetType) => {
+        stateToMap[resetType.name] = {
+            completedObjectives: state.completedObjectives[resetType.name],
+            disabledObjectives: state.disabledObjectives[resetType.name]   
+        }
+    })
+
+    return stateToMap
 }
 
-export default withStyles(styles)(connect(mapStateToProps)(Dailies))
+const mapDispatchToProps = {
+    toggleObjectiveCompleted
+}
+
+export default withStyles(styles)(connect(mapStateToProps, mapDispatchToProps)(Dailies))

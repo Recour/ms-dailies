@@ -306,18 +306,37 @@ export const objectives = [
     }
 ]
 
-export const dailyBosses = objectives.filter((objective) => {
-    return (objective.resetType === dailyReset && objective.objectiveType === "Boss")
-})
+export const dailyBosses = {
+    name: "Daily Bosses",
+    objectives: objectives.filter((objective) => {
+                    return (objective.resetType === dailyReset && objective.objectiveType === "Boss")
+                })
+}
 
-export const dailyQuests = objectives.filter((objective) => {
-    return (objective.resetType === dailyReset && objective.objectiveType === "Quest")
-})
+export const dailyQuests = {
+    name: "Daily Quests",
+    objectives: objectives.filter((objective) => {
+                    return (objective.resetType === dailyReset && objective.objectiveType === "Quest")
+                })
+}
 
-export const weeklyBosses = objectives.filter((objective) => {
-    return (objective.resetType === weeklyBossReset && objective.objectiveType === "Boss")
-})
+export const weeklyBosses = {
+    name: "Weekly Bosses",
+    objectives: objectives.filter((objective) => {
+                    return (objective.resetType === weeklyBossReset && objective.objectiveType === "Boss")
+                })
+}
 
-export const weeklyQuests = objectives.filter((objective) => {
-    return (objective.resetType === weeklyQuestReset && objective.objectiveType === "Quest")
-})
+export const weeklyQuests = {
+    name: "Weekly Quests",
+    objectives: objectives.filter((objective) => {
+                    return (objective.resetType === weeklyQuestReset && objective.objectiveType === "Quest")
+                })
+}
+
+export const objectiveTypes = [
+    dailyBosses,
+    dailyQuests,
+    weeklyBosses,
+    weeklyQuests
+]

@@ -1,5 +1,6 @@
 import React from 'react'
-import { withStyles } from '@material-ui/core/styles';
+import { withStyles } from '@material-ui/core/styles'
+import { connect } from 'react-redux'
 
 // Material UI components
 import {     
@@ -34,9 +35,9 @@ class GridPanel extends React.Component {
                         container
                         direction="row"
                         justify="space-between"
-                        alignItems="flex-end">
+                        alignItems="center">
                             <Grid
-                            item>
+                            item>    
                                 <Typography
                                 variant="h4">
                                         {this.props.title}
@@ -58,7 +59,7 @@ class GridPanel extends React.Component {
                         <Grid 
                         container 
                         spacing={2}>
-                            { this.renderChildren() }
+                            {this.renderChildren()}
                         </Grid>
                     </Box>
                 </Box>

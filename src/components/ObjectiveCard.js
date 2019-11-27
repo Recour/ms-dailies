@@ -1,7 +1,5 @@
 import React from 'react'
 import { withStyles } from '@material-ui/core/styles';
-import { connect } from 'react-redux'
-import { toggleObjectiveCompleted } from '../actions/objectivesActions'
 
 // Material UI imports
 import {
@@ -27,20 +25,19 @@ class ObjectiveCard extends React.Component {
         super(props)
 
         this.handleClick = this.handleClick.bind(this)
-        this.isObjectiveCompleted = this.isObjectiveCompleted.bind(this)
     }
 
     render() {
         const { classes } = this.props
         return(
             <Card
-            className={this.isObjectiveCompleted() ? classes.completed : classes.uncompleted}>
+            className={this.props.isCompleted ? classes.completed : classes.uncompleted}>
                 <CardActionArea
                 onClick={ this.handleClick }>
                     <CardMedia>
                         <img 
-                        src={ this.props.objective.image }
-                        alt={ this.props.objective.name }
+                        src={this.props.objective.image}
+                        alt={this.props.objective.name}
                         height="100%"
                         width="100%"/>
                     </CardMedia>
@@ -49,13 +46,13 @@ class ObjectiveCard extends React.Component {
                         <Typography 
                         variant="h6" 
                         noWrap>
-                            { this.props.objective.name }
+                            {this.props.objective.name}
                         </Typography>
 
                         <Typography 
                         variant="body2" 
                         noWrap>
-                            { this.props.objective.subtext }
+                            {this.props.objective.subtext}
                         </Typography>
                     </CardContent>
                 </CardActionArea>
@@ -64,28 +61,8 @@ class ObjectiveCard extends React.Component {
     }
 
     handleClick() {
-        try {
-            this.props.toggleObjectiveCompleted(this.props.objective.name, this.props.objective.resetType);
-        } catch(error) {
-            alert(error)
-        }
-    }
-
-    isObjectiveCompleted() {
-        if(this.props.completedObjectives.includes(this.props.objective.name)) {
-            return true
-        } else {
-            return false
-        }
+        this.props.toggleObjectiveCompleted(this.props.objective.name, this.props.objective.resetType);
     }
 }
 
-const mapStateToProps = (state, ownProps) => {
-    return state.objectives[ownProps.objective.resetType.name]
-}
-
-const mapDispatchToProps = {
-    toggleObjectiveCompleted
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(withStyles(styles)(ObjectiveCard))
+export default withStyles(styles)(ObjectiveCard)

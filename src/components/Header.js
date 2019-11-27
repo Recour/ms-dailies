@@ -30,7 +30,7 @@ import { menuLinks } from '../data/menu'
 
 const styles = {
     appBar: {
-        backgroundColor: 'rgb(255, 206, 77)'
+        backgroundColor: 'rgba(255, 255, 255, 0.3)'
     },
     settingsButton: {
         marginLeft: 'auto'
@@ -93,8 +93,8 @@ class Header extends React.Component {
                 </AppBar>
 
                 <Drawer 
-                    open={this.state.drawerOpen}
-                    onClose={this.handleDrawerClose}>
+                open={this.state.drawerOpen}
+                onClose={this.handleDrawerClose}>
                     <Box width={200}> 
                         <List>
                             {this.renderMenu(menuLinks)}
