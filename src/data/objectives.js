@@ -125,14 +125,28 @@ export const objectives = [
         objectiveType: "Boss",
         resetType: dailyReset
     },
-    // Daily Quests    
     {
-        name: "Commerci Voyages",
-        image: require("../static/images/commerci_voyages.png"),
+        name: "Julieta",
+        image: require("../static/images/julieta.png"),
+        subtext: "Normal",
+        objectiveType: "Boss",
+        resetType: dailyReset
+    },
+    // Daily Quests  
+    {
+        name: "Monster Park",
+        image: require("../static/images/monster_park.png"),
         subtext: "Solo",
         objectiveType: "Quest",
         resetType: dailyReset
-    },    
+    },
+    {
+        name: "Commerci",
+        image: require("../static/images/commerci.png"),
+        subtext: "Solo",
+        objectiveType: "Quest",
+        resetType: dailyReset
+    },
     {
         name: "Vanishing Journey",
         image: require("../static/images/vanishing_journey.png"),
@@ -203,7 +217,21 @@ export const objectives = [
         objectiveType: "Quest",
         resetType: dailyReset
     },
+    {
+        name: "Tenebris",
+        image: require("../static/images/moonbridge.png"),
+        subtext: "Solo / Party",
+        objectiveType: "Quest",
+        resetType: dailyReset
+    },
     // Weekly Bosses
+    {
+        name: "Zakum",
+        image: require("../static/images/zakum.png"),
+        subtext: "Chaos",
+        objectiveType: "Boss",
+        resetType: weeklyBossReset
+    },
     {
         name: "Magnus",
         image: require("../static/images/magnus.png"),
@@ -211,6 +239,20 @@ export const objectives = [
         objectiveType: "Boss",
         resetType: weeklyBossReset
     },
+    {
+        name: "Hilla",
+        image: require("../static/images/hilla.png"),
+        subtext: "Hard",
+        objectiveType: "Boss",
+        resetType: weeklyBossReset
+    },
+    {
+        name: "Papulatus",
+        image: require("../static/images/papulatus.png"),
+        subtext: "Chaos",
+        objectiveType: "Boss",
+        resetType: weeklyBossReset
+    },    
     {
         name: "Pierre",
         image: require("../static/images/pierre.png"),
@@ -235,6 +277,13 @@ export const objectives = [
     {
         name: "Vellum",
         image: require("../static/images/vellum.png"),
+        subtext: "Chaos",
+        objectiveType: "Boss",
+        resetType: weeklyBossReset
+    },
+    {
+        name: "Pink Bean",
+        image: require("../static/images/pink_bean.png"),
         subtext: "Chaos",
         objectiveType: "Boss",
         resetType: weeklyBossReset
@@ -268,16 +317,16 @@ export const objectives = [
         resetType: weeklyBossReset
     },
     {
-        name: "Will",
-        image: require("../static/images/will.png"),
-        subtext: "Normal / Hard",
+        name: "Gloom",
+        image: require("../static/images/gloom.png"),
+        subtext: "Normal",
         objectiveType: "Boss",
         resetType: weeklyBossReset
     },
     {
-        name: "Gloom",
-        image: require("../static/images/gloom.png"),
-        subtext: "Normal",
+        name: "Verus Hilla",
+        image: require("../static/images/verus_hilla.png"),
+        subtext: "Hard",
         objectiveType: "Boss",
         resetType: weeklyBossReset
     },
@@ -287,9 +336,37 @@ export const objectives = [
         subtext: "Normal",
         objectiveType: "Boss",
         resetType: weeklyBossReset
+    },    
+    {
+        name: "Will",
+        image: require("../static/images/will.png"),
+        subtext: "Normal / Hard",
+        objectiveType: "Boss",
+        resetType: weeklyBossReset
+    },
+    {
+        name: "Princess No",
+        image: require("../static/images/princess_no.png"),
+        subtext: "Normal",
+        objectiveType: "Boss",
+        resetType: weeklyBossReset
     },
     // TODO: add Black Mage
     // Weekly Quests
+    {
+        name: "Mu Lung Dojo",
+        image: require("../static/images/mu_lung.png"),
+        subtext: "Solo",
+        objectiveType: "Quest",
+        resetType: weeklyQuestReset
+    },
+    {
+        name: "Kritias",
+        image: require("../static/images/kritias.png"),
+        subtext: "Solo / Party",
+        objectiveType: "Quest",
+        resetType: weeklyQuestReset
+    },
     {
         name: "Haven",
         image: require("../static/images/haven.png"),

@@ -19,7 +19,7 @@ import { resetTypesDailies, dailyReset } from '../../data/resetTypes'
 
 const styles = {
     background: {
-        backgroundColor: 'rgb(245,245,245)',
+        backgroundColor: 'rgb(240,240,240)',
         borderRadius: '10px'
     }
 }
@@ -62,13 +62,10 @@ class Dailies extends React.Component {
     }
 
     renderObjectives(objectives, resetType) {
-        var objectivesToRender = objectives.filter((objective) => {
-            if(!this.props[resetType.name].disabledObjectives.includes(objective.name)) {
-                return objective
-            }
-        })
-
-        return objectivesToRender.map((objective, index) =>
+        return objectives.filter((objective) => 
+            !this.props[resetType.name].disabledObjectives.includes(objective.name)
+        )
+        .map((objective, index) =>
             <ObjectiveCard 
             objective={objective} 
             key={index} 

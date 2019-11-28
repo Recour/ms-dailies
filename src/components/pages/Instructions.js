@@ -16,7 +16,7 @@ const instructions = [
     {
         icon: <MouseIcon/>,
         primary: "Click on an objective to mark it as completed,",
-        secondary: "completed objectives are colored in green."
+        secondary: "completed objectives are marked with a stamp."
     },
     {
         icon: <AccessTimeIcon/>,

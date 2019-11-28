@@ -8,15 +8,30 @@ import {
     CardMedia,
     CardContent,
     Typography,
-    Box
+    Box,
 } from '@material-ui/core';
 
+const completedStampImage = require('../static/images/completed_stamp.png')
+
 const styles = {
-    completed: {
-        backgroundColor: 'rgb(156,182,93)'
+    card: {
+        backgroundColor: 'rgb(240,240,240)',
+        borderRadius: '5%',
+        height: '100%'
     },
-    uncompleted: {
-        backgroundColor: "rgb(255,255,255)"
+    cardMedia: {
+        borderRadius: '5%'
+    },
+    cardContent: {
+        position: 'relative'
+    },
+    completedStamp: {
+        top: '20%',
+        left: '0',
+        position: 'absolute'
+    },
+    fullHeight: {
+        height: '100%'
     }
 }
 
@@ -31,18 +46,22 @@ class ObjectiveCard extends React.Component {
         const { classes } = this.props
         return(
             <Card
-            className={this.props.isCompleted ? classes.completed : classes.uncompleted}>
+            className={classes.card}>
                 <CardActionArea
-                onClick={ this.handleClick }>
-                    <CardMedia>
-                        <img 
-                        src={this.props.objective.image}
+                onClick={this.handleClick}
+                className={classes.fullHeight}>
+                    <Box
+                    mt={1/2}
+                    mx={1/2}>
+                        <CardMedia
+                        component="img"
+                        image={this.props.objective.image}
                         alt={this.props.objective.name}
-                        height="100%"
-                        width="100%"/>
-                    </CardMedia>
+                        className={classes.cardMedia}/>
+                    </Box>
 
-                    <CardContent>
+                    <CardContent
+                    className={classes.cardContent}>
                         <Typography 
                         variant="h6" 
                         noWrap>
@@ -54,6 +73,16 @@ class ObjectiveCard extends React.Component {
                         noWrap>
                             {this.props.objective.subtext}
                         </Typography>
+                        
+                        <Box
+                        display={this.props.isCompleted ? 'inline' : 'none'}>
+                            <CardMedia
+                            component="img"
+                            image={completedStampImage}
+                            alt={this.props.objective.name}
+                            className={classes.completedStamp}/>
+                        </Box>
+                        
                     </CardContent>
                 </CardActionArea>
             </Card>

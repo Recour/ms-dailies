@@ -19,7 +19,6 @@ import {
 } from '@material-ui/core'
 
 import { objectiveTypes } from '../data/objectives'
-import { resetTypes } from '../data/resetTypes'
 
 const styles = {
 
@@ -35,7 +34,6 @@ class SettingsDialog extends React.Component {
     }
 
     render() {
-        const { classes } = this.props
         return(
             <Dialog
             open={this.props.open}

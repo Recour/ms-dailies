@@ -1,6 +1,5 @@
 import React from 'react'
 import { withStyles } from '@material-ui/core/styles'
-import { connect } from 'react-redux'
 
 // Material UI components
 import {     
@@ -25,7 +24,6 @@ class GridPanel extends React.Component {
     }
 
     render() {
-        const { classes } = this.props
         return(
             <Paper>
                 <Box p={3}>
@@ -74,7 +72,7 @@ class GridPanel extends React.Component {
             xs={6} 
             sm={4} 
             md={3} 
-            lg={2} 
+            lg={2}
             key={index}>
                 {child}
             </Grid>

@@ -7,8 +7,7 @@ import { withStyles } from '@material-ui/core/styles'
 
 // Material UI components
 import { 
-    Typography,
-    Grid
+    Typography
 } from '@material-ui/core'
 
 momentdurationformat(moment)
@@ -26,7 +25,6 @@ class ResetCountdown extends React.Component {
     }
 
     render() {
-        const { classes } = this.props
         return (
             <Typography
             variant="subtitle1">

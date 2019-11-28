@@ -30,7 +30,7 @@ import { menuLinks } from '../data/menu'
 
 const styles = {
     appBar: {
-        backgroundColor: 'rgba(255, 255, 255, 0.3)'
+        backgroundColor: 'rgba(255, 255, 255, 0.0)'
     },
     settingsButton: {
         marginLeft: 'auto'
