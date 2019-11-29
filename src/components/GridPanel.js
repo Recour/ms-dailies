@@ -13,7 +13,11 @@ import {
 import ResetCountdown from './ResetCountdown'
 
 const styles = {
-
+    resetCountdown: {
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'center'
+    }
 }
 
 class GridPanel extends React.Component {
@@ -24,6 +28,7 @@ class GridPanel extends React.Component {
     }
 
     render() {
+        const { classes } = this.props
         return(
             <Paper>
                 <Box p={3}>
@@ -33,7 +38,7 @@ class GridPanel extends React.Component {
                         container
                         direction="row"
                         justify="space-between"
-                        alignItems="center">
+                        alignItems="flex-end">
                             <Grid
                             item>    
                                 <Typography
@@ -45,6 +50,7 @@ class GridPanel extends React.Component {
                             <Grid 
                             item>
                                 <ResetCountdown
+                                className={classes.resetCountdown}
                                 resetType={this.props.resetType}/>
                             </Grid>
                         </Grid>

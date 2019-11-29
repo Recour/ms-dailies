@@ -15,23 +15,19 @@ import SaveIcon from '@material-ui/icons/Save'
 const instructions = [
     {
         icon: <MouseIcon/>,
-        primary: "Click on an objective to mark it as completed,",
-        secondary: "completed objectives are marked with a stamp."
+        text: "Click on an objective to mark it as completed, completed objectives are marked with a stamp."
     },
     {
         icon: <AccessTimeIcon/>,
-        primary: "Objectives will be reset when resets happen in-game,",
-        secondary: "even when the app is not open in your browser!"
+        text: "Objectives will be reset when resets happen in-game, even when the app is not open in your browser!"
     },    
     {
         icon: <SettingsIcon/>,
-        primary: "You can hide objectives that you're not interested in",
-        secondary: "in the Settings menu."
+        text: "You can hide objectives that you haven't unlocked yet in the Settings menu."
     },
     {
         icon: <SaveIcon/>,
-        primary: "Your progress will be saved in your browser's storage.",
-        secondary: "When you come back, you'll know where you left off."
+        text: "Your progress will be saved in your browser's storage. When you come back, you'll know where you left off."
     }
 ]
 
@@ -59,17 +55,16 @@ export default class Instructions extends React.Component {
                 key={instructionsToRender.length}
                 xs={12}>
                     <Box
-                    p={3}
-                    m={3}>
-                        {instruction.icon}
+                    p={2}
+                    m={2}>
+                        <Box
+                        p={1}>
+                            {instruction.icon}
+                        </Box>
 
                         <Typography>
-                            {instruction.primary}
-                        </Typography>
-
-                        <Typography>
-                            {instruction.secondary}
-                        </Typography>    
+                            {instruction.text}
+                        </Typography>  
                     </Box>
                 </Grid>
             )

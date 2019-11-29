@@ -13,9 +13,6 @@ const styles = {
   footer: {
     marginTop: 'auto',
     backgroundColor: 'transparent'
-  },
-  background: {
-    // width: '110px'
   }
 }
 
@@ -29,23 +26,33 @@ class StickyFooter extends React.Component {
           justify="center">
             <Grid 
             item>
-              <Paper
-              className={classes.background}>
-                
-                  <Typography 
-                  variant="caption" 
-                  align="center">
-                    <Box m={1}>
-                    {'Made by '}
-                    <Link 
-                    color="inherit" 
-                    href="https://github.com/Recour/">
-                      Recour
-                    </Link>
-                    </Box>
-                  </Typography>
-                
-              </Paper>
+              <Box 
+              m={1}>
+                <Paper>
+                  <Box
+                  p={1}>
+                    <Typography
+                    variant="body2">
+                      
+                      {'Made by '}
+
+                      <Link 
+                      color="inherit" 
+                      href="https://github.com/Recour/">
+                        Recour
+                      </Link>
+
+                    </Typography>
+
+                    <Typography
+                    variant="body2">
+                      
+                      {'© NEXON Korea Corporation and NEXON America Inc.'}
+
+                    </Typography>
+                  </Box>
+                </Paper>
+              </Box>
             </Grid>
           </Grid>
         </footer>
