@@ -1,12 +1,10 @@
 import React from 'react'
-import { withStyles } from '@material-ui/core/styles';
-
-// Background image
-import Image from '../static/images/maplestory2.png'
+import {withStyles} from '@material-ui/core/styles';
+import {images} from "../data/images";
 
 const styles = {
     background: {
-        backgroundImage: `url(${Image})`,
+        backgroundImage: `url(${images.background})`,
         backgroundSize: 'cover',
         backgroundAttachment: 'fixed',
         display: 'flex',

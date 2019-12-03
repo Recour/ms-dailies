@@ -38,6 +38,8 @@ function App() {
             <Route path="/dailies" component={Dailies}/>
             <Route path="/weeklies" component={Weeklies}/>
             <Route path="/instructions" component={Instructions}/>
+
+            <Redirect from="*" to="/" />
           </Switch>
 
           <StickyFooter/>

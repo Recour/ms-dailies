@@ -3,350 +3,393 @@ import {
     weeklyBossReset,
     weeklyQuestReset
 } from './resetTypes'
+import {images} from "./images";
 
 export const objectives = [
     // Daily Bosses
     {
         name: "Balrog",
-        image: require("../static/images/balrog.png"),
+        image: images.bosses['Balrog'],
         subtext: "Easy",
         objectiveType: "Boss",
         resetType: dailyReset
     },
     {
         name: "Zakum",
-        image: require("../static/images/zakum.png"),
+        image: images.bosses['Zakum'],
         subtext: "Easy / Normal",
         objectiveType: "Boss",
         resetType: dailyReset
     },
     {
         name: "Ursus",
-        image: require("../static/images/ursus.png"),
+        image: images.bosses['Ursus'],
         subtext: "Normal",
         objectiveType: "Boss",
         resetType: dailyReset
     },
     {
         name: "Magnus",
-        image: require("../static/images/magnus.png"),
+        image: images.bosses['Magnus'],
         subtext: "Easy / Normal",
         objectiveType: "Boss",
         resetType: dailyReset
     },
     {
         name: "Hilla",
-        image: require("../static/images/hilla.png"),
+        image: images.bosses['Hilla'],
         subtext: "Normal",
         objectiveType: "Boss",
         resetType: dailyReset
     },
     {
         name: "OMNI-CLN",
-        image: require("../static/images/omni-cln.png"),
+        image: images.bosses['OMNI-CLN'],
         subtext: "Normal",
         objectiveType: "Boss",
         resetType: dailyReset
     },
     {
         name: "Papulatus",
-        image: require("../static/images/papulatus.png"),
+        image: images.bosses['Papulatus'],
         subtext: "Easy / Normal",
         objectiveType: "Boss",
         resetType: dailyReset
     },    
     {
         name: "Pierre",
-        image: require("../static/images/pierre.png"),
+        image: images.bosses['Pierre'],
         subtext: "Normal",
         objectiveType: "Boss",
         resetType: dailyReset
     },    
     {
         name: "Von Bon",
-        image: require("../static/images/von_bon.png"),
+        image: images.bosses['Von Bon'],
         subtext: "Normal",
         objectiveType: "Boss",
         resetType: dailyReset
     },
     {
         name: "Crimson Queen",
-        image: require("../static/images/crimson_queen.png"),
+        image: images.bosses['Crimson Queen'],
         subtext: "Normal",
         objectiveType: "Boss",
         resetType: dailyReset
     },
     {
         name: "Vellum",
-        image: require("../static/images/vellum.png"),
+        image: images.bosses['Vellum'],
         subtext: "Normal",
         objectiveType: "Boss",
         resetType: dailyReset
     },
     {
         name: "Von Leon",
-        image: require("../static/images/von_leon.png"),
+        image: images.bosses['Von Leon'],
         subtext: "Easy / Normal / Hard",
         objectiveType: "Boss",
         resetType: dailyReset
     },
     {
         name: "Horntail",
-        image: require("../static/images/horntail.png"),
+        image: images.bosses['Horntail'],
         subtext: "Easy / Normal / Chaos",
         objectiveType: "Boss",
         resetType: dailyReset
     },
     {
         name: "Arkarium",
-        image: require("../static/images/arkarium.png"),
+        image: images.bosses['Arkarium'],
         subtext: "Easy / Normal",
         objectiveType: "Boss",
         resetType: dailyReset
     },
     {
         name: "Pink Bean",
-        image: require("../static/images/pink_bean.png"),
+        image: images.bosses['Pink Bean'],
         subtext: "Normal",
         objectiveType: "Boss",
         resetType: dailyReset
     },
     {
         name: "Gollux",
-        image: require("../static/images/gollux.png"),
+        image: images.bosses['Gollux'],
         subtext: "Easy / Normal / Hard / Hell",
         objectiveType: "Boss",
         resetType: dailyReset
     },
     {
         name: "Ranmaru",
-        image: require("../static/images/ranmaru.png"),
+        image: images.bosses['Ranmaru'],
         subtext: "Normal / Hard",
         objectiveType: "Boss",
         resetType: dailyReset
     },
     {
         name: "Julieta",
-        image: require("../static/images/julieta.png"),
+        image: images.bosses['Julieta'],
         subtext: "Normal",
         objectiveType: "Boss",
         resetType: dailyReset
     },
-    // Daily Quests  
+    // Daily Quests
     {
-        name: "Monster Park",
-        image: require("../static/images/monster_park.png"),
+        name: "Commerci",
+        image: images.quests['Commerci'],
         subtext: "Solo",
         objectiveType: "Quest",
         resetType: dailyReset
     },
     {
-        name: "Commerci",
-        image: require("../static/images/commerci.png"),
-        subtext: "Solo",
+        name: "Yu Garden",
+        image: images.quests['Yu Garden'],
+        subtext: "Solo / Party",
         objectiveType: "Quest",
         resetType: dailyReset
     },
     {
         name: "Vanishing Journey",
-        image: require("../static/images/vanishing_journey.png"),
+        image: images.quests['Vanishing Journey'],
         subtext: "Solo / Party",
         objectiveType: "Quest",
         resetType: dailyReset
     },
     {
         name: "Erda Spectrum",
-        image: require("../static/images/erda_spectrum.png"),
+        image: images.quests['Erda Spectrum'],
         subtext: "Solo / Party",
         objectiveType: "Quest",
         resetType: dailyReset
     },
     {
         name: "Chu Chu Island",
-        image: require("../static/images/chu_chu_island.png"),
+        image: images.quests['Chu Chu Island'],
         subtext: "Solo / Party",
         objectiveType: "Quest",
         resetType: dailyReset
     },
     {
         name: "Hungry Muto",
-        image: require("../static/images/hungry_muto.png"),
+        image: images.quests['Hungry Muto'],
         subtext: "Solo / Party",
         objectiveType: "Quest",
         resetType: dailyReset
     },
     {
         name: "Lachelein",
-        image: require("../static/images/lachelein.png"),
+        image: images.quests['Lachelein'],
         subtext: "Solo / Party",
         objectiveType: "Quest",
         resetType: dailyReset
     },
     {
         name: "Dream Defender",
-        image: require("../static/images/dream_defender.png"),
+        image: images.quests['Dream Defender'],
         subtext: "Solo",
         objectiveType: "Quest",
         resetType: dailyReset
     },
     {
         name: "Arcana",
-        image: require("../static/images/arcana.png"),
+        image: images.quests['Arcana'],
         subtext: "Solo / Party",
         objectiveType: "Quest",
         resetType: dailyReset
     },
     {
         name: "Spirit Savior",
-        image: require("../static/images/spirit_savior.png"),
+        image: images.quests['Spirit Savior'],
         subtext: "Solo",
         objectiveType: "Quest",
         resetType: dailyReset
     },
     {
         name: "Morass",
-        image: require("../static/images/morass.png"),
+        image: images.quests['Morass'],
         subtext: "Solo / Party",
         objectiveType: "Quest",
         resetType: dailyReset
     },
     {
         name: "Esfera",
-        image: require("../static/images/esfera.png"),
+        image: images.quests['Esfera'],
         subtext: "Solo / Party",
         objectiveType: "Quest",
         resetType: dailyReset
     },
     {
         name: "Tenebris",
-        image: require("../static/images/moonbridge.png"),
+        image: images.quests['Tenebris'],
         subtext: "Solo / Party",
+        objectiveType: "Quest",
+        resetType: dailyReset
+    },
+    {
+        name: "Monster Park",
+        image: images.quests['Monster Park'],
+        subtext: "Solo",
+        objectiveType: "Quest",
+        resetType: dailyReset
+    },
+    {
+        name: "Legion Raid",
+        image: images.quests['Legion Raid'],
+        subtext: "Solo",
+        objectiveType: "Quest",
+        resetType: dailyReset
+    },
+    {
+        name: "Guild Gifts",
+        image: images.quests['Guild Gifts'],
+        subtext: "Claim",
+        objectiveType: "Quest",
+        resetType: dailyReset
+    },
+    {
+        name: "Fairy Bros Gift",
+        image: images.quests['Fairy Bros Gift'],
+        subtext: "Claim",
+        objectiveType: "Quest",
+        resetType: dailyReset
+    },
+    {
+        name: "Reward Points",
+        image: images.quests['Reward Points'],
+        subtext: "Claim",
+        objectiveType: "Quest",
+        resetType: dailyReset
+    },
+    {
+        name: "MVP Reward",
+        image: images.quests['MVP Reward'],
+        subtext: "Claim",
         objectiveType: "Quest",
         resetType: dailyReset
     },
     // Weekly Bosses
     {
         name: "Zakum",
-        image: require("../static/images/zakum.png"),
+        image: images.bosses['Zakum'],
         subtext: "Chaos",
         objectiveType: "Boss",
         resetType: weeklyBossReset
     },
     {
         name: "Magnus",
-        image: require("../static/images/magnus.png"),
+        image: images.bosses['Magnus'],
         subtext: "Hard",
         objectiveType: "Boss",
         resetType: weeklyBossReset
     },
     {
         name: "Hilla",
-        image: require("../static/images/hilla.png"),
+        image: images.bosses['Hilla'],
         subtext: "Hard",
         objectiveType: "Boss",
         resetType: weeklyBossReset
     },
     {
         name: "Papulatus",
-        image: require("../static/images/papulatus.png"),
+        image: images.bosses['Papulatus'],
         subtext: "Chaos",
         objectiveType: "Boss",
         resetType: weeklyBossReset
     },    
     {
         name: "Pierre",
-        image: require("../static/images/pierre.png"),
+        image: images.bosses['Pierre'],
         subtext: "Chaos",
         objectiveType: "Boss",
         resetType: weeklyBossReset
     },    
     {
         name: "Von Bon",
-        image: require("../static/images/von_bon.png"),
+        image: images.bosses['Von Bon'],
         subtext: "Chaos",
         objectiveType: "Boss",
         resetType: weeklyBossReset
     },
     {
         name: "Crimson Queen",
-        image: require("../static/images/crimson_queen.png"),
+        image: images.bosses['Crimson Queen'],
         subtext: "Chaos",
         objectiveType: "Boss",
         resetType: weeklyBossReset
     },
     {
         name: "Vellum",
-        image: require("../static/images/vellum.png"),
+        image: images.bosses['Vellum'],
         subtext: "Chaos",
         objectiveType: "Boss",
         resetType: weeklyBossReset
     },
     {
         name: "Pink Bean",
-        image: require("../static/images/pink_bean.png"),
+        image: images.bosses['Pink Bean'],
         subtext: "Chaos",
         objectiveType: "Boss",
         resetType: weeklyBossReset
     },
     {
         name: "Cygnus",
-        image: require("../static/images/cygnus.png"),
+        image: images.bosses['Cygnus'],
         subtext: "Easy / Normal",
         objectiveType: "Boss",
         resetType: weeklyBossReset
     },
     {
         name: "Lotus",
-        image: require("../static/images/lotus.png"),
+        image: images.bosses['Lotus'],
         subtext: "Normal / Hard",
         objectiveType: "Boss",
         resetType: weeklyBossReset
     },
     {
         name: "Damien",
-        image: require("../static/images/damien.png"),
+        image: images.bosses['Damien'],
         subtext: "Normal / Hard",
         objectiveType: "Boss",
         resetType: weeklyBossReset
     },
     {
         name: "Lucid",
-        image: require("../static/images/lucid.png"),
+        image: images.bosses['Lucid'],
         subtext: "Normal / Hard",
         objectiveType: "Boss",
         resetType: weeklyBossReset
     },
     {
         name: "Gloom",
-        image: require("../static/images/gloom.png"),
+        image: images.bosses['Gloom'],
         subtext: "Normal",
         objectiveType: "Boss",
         resetType: weeklyBossReset
     },
     {
         name: "Verus Hilla",
-        image: require("../static/images/verus_hilla.png"),
+        image: images.bosses['Verus Hilla'],
         subtext: "Hard",
         objectiveType: "Boss",
         resetType: weeklyBossReset
     },
     {
         name: "Darknell",
-        image: require("../static/images/darknell.png"),
+        image: images.bosses['Darknell'],
         subtext: "Normal",
         objectiveType: "Boss",
         resetType: weeklyBossReset
     },    
     {
         name: "Will",
-        image: require("../static/images/will.png"),
+        image: images.bosses['Will'],
         subtext: "Normal / Hard",
         objectiveType: "Boss",
         resetType: weeklyBossReset
     },
     {
         name: "Princess No",
-        image: require("../static/images/princess_no.png"),
+        image: images.bosses['Princess No'],
         subtext: "Normal",
         objectiveType: "Boss",
         resetType: weeklyBossReset
@@ -355,28 +398,28 @@ export const objectives = [
     // Weekly Quests
     {
         name: "Mu Lung Dojo",
-        image: require("../static/images/mu_lung.png"),
+        image: images.quests['Mu Lung Dojo'],
         subtext: "Solo",
         objectiveType: "Quest",
         resetType: weeklyQuestReset
     },
     {
         name: "Kritias",
-        image: require("../static/images/kritias.png"),
+        image: images.quests['Kritias'],
         subtext: "Solo / Party",
         objectiveType: "Quest",
         resetType: weeklyQuestReset
     },
     {
         name: "Haven",
-        image: require("../static/images/haven.png"),
+        image: images.quests['Haven'],
         subtext: "Solo / Party",
         objectiveType: "Quest",
         resetType: weeklyQuestReset
     },
     {
         name: "Dark World Tree",
-        image: require("../static/images/dark_world_tree.png"),
+        image: images.quests['Dark World Tree'],
         subtext: "Solo / Party",
         objectiveType: "Quest",
         resetType: weeklyQuestReset

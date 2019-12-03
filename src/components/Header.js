@@ -1,5 +1,6 @@
 import React from 'react'
-import { withStyles } from '@material-ui/core/styles';
+import {withStyles} from '@material-ui/core/styles';
+import {images} from '../data/images'
 
 // Material UI imports
 import {
@@ -77,7 +78,7 @@ class Header extends React.Component {
                         </Box>
 
                         <img
-                        src={require('../static/images/logo_transparent.png')}
+                        src={images.logo}
                         height={50}
                         alt="MapleStory Dailies"/>
 

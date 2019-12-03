@@ -1,5 +1,6 @@
 import React from 'react'
 import { withStyles } from '@material-ui/core/styles';
+import {images} from "../data/images";
 
 // Material UI imports
 import {
@@ -10,8 +11,6 @@ import {
     Typography,
     Box,
 } from '@material-ui/core';
-
-const completedStampImage = require('../static/images/completed_stamp.png')
 
 const styles = {
     card: {
@@ -78,8 +77,8 @@ class ObjectiveCard extends React.Component {
                         display={this.props.isCompleted ? 'inline' : 'none'}>
                             <CardMedia
                             component="img"
-                            image={completedStampImage}
-                            alt={this.props.objective.name}
+                            image={images.completedStamp}
+                            alt={"Completed"}
                             className={classes.completedStamp}/>
                         </Box>
                         
