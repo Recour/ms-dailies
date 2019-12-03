@@ -233,8 +233,8 @@ export const objectives = [
         resetType: dailyReset
     },
     {
-        name: "Legion Raid",
-        image: images.quests['Legion Raid'],
+        name: "Legion",
+        image: images.quests['Legion'],
         subtext: "Solo",
         objectiveType: "Quest",
         resetType: dailyReset

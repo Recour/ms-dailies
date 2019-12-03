@@ -46,7 +46,7 @@ export const images = {
         'Esfera': '/images/esfera.webp',
         'Tenebris': '/images/moonbridge.webp',
         'Monster Park': '/images/monster_park.webp',
-        'Legion Raid': '/images/legion_raid.webp',
+        'Legion': '/images/legion.webp',
         'Guild Gifts': '/images/guild_gifts.webp',
         'Fairy Bros Gift': 'images/fairy_bros_gift.webp',
         'Reward Points': '/images/reward_points.webp',
