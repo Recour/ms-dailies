@@ -240,13 +240,6 @@ export const objectives = [
         resetType: dailyReset
     },
     {
-        name: "Guild Gifts",
-        image: images.quests['Guild Gifts'],
-        subtext: "Claim",
-        objectiveType: "Quest",
-        resetType: dailyReset
-    },
-    {
         name: "Fairy Bros Gift",
         image: images.quests['Fairy Bros Gift'],
         subtext: "Claim",
@@ -396,6 +389,13 @@ export const objectives = [
     },
     // TODO: add Black Mage
     // Weekly Quests
+    {
+        name: "Guild Gifts",
+        image: images.quests['Guild Gifts'],
+        subtext: "Claim",
+        objectiveType: "Quest",
+        resetType: weeklyQuestReset
+    },
     {
         name: "Mu Lung Dojo",
         image: images.quests['Mu Lung Dojo'],
