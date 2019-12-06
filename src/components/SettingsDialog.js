@@ -2,6 +2,7 @@ import React from 'react'
 import { withStyles } from '@material-ui/core/styles'
 import { connect } from 'react-redux'
 import { toggleObjectiveDisabled } from '../actions/disabledObjectivesActions'
+import {setServer} from "../actions/serverActions";
 
 import { 
     Dialog, 
@@ -11,6 +12,9 @@ import {
     Typography,
     Divider,
     Checkbox,
+    FormControl,
+    RadioGroup,
+    Radio,
     FormGroup,
     FormControlLabel,
     Grid,
@@ -18,7 +22,8 @@ import {
     Box
 } from '@material-ui/core'
 
-import { objectiveTypes } from '../data/objectives'
+import {objectiveTypes} from '../data/objectives'
+import {servers} from "../data/servers";
 
 const styles = {
 
@@ -28,9 +33,11 @@ class SettingsDialog extends React.Component {
     constructor(props) {
         super(props)
 
-        this.renderCheckboxes = this.renderCheckboxes.bind(this)
-        this.renderGrids = this.renderGrids.bind(this)
-        this.handleChange = this.handleChange.bind(this)
+        this.renderServerRadioButtons = this.renderServerRadioButtons.bind(this);
+        this.renderVisibleObjectiveCheckboxes = this.renderVisibleObjectiveCheckboxes.bind(this);
+        this.renderVisibleObjectiveGrids = this.renderVisibleObjectiveGrids.bind(this);
+        this.handleChangeVisibleObjectives = this.handleChangeVisibleObjectives.bind(this);
+        this.handleChangeServer = this.handleChangeServer.bind(this);
     }
 
     render() {
@@ -49,6 +56,26 @@ class SettingsDialog extends React.Component {
                 <Divider/>
 
                 <DialogContent>
+                    {/* Server */}
+                    <DialogContentText>
+                        <Box
+                            my={1}>
+                            <Typography
+                                variant="h5">
+                                Server
+                            </Typography>
+                        </Box>
+
+                        <FormControl>
+                            <RadioGroup
+                                value={this.props.server}
+                                onChange={this.handleChangeServer}>
+                                {this.renderServerRadioButtons(servers)}
+                            </RadioGroup>
+                        </FormControl>
+                    </DialogContentText>
+
+                    {/* Visible objectives */}
                     <DialogContentText>
                         <Box
                         my={1}>
@@ -60,7 +87,7 @@ class SettingsDialog extends React.Component {
 
                         <Grid 
                         container>
-                            {this.renderGrids(objectiveTypes)}
+                            {this.renderVisibleObjectiveGrids(objectiveTypes)}
                         </Grid>
                     </DialogContentText>
                 </DialogContent>
@@ -68,7 +95,16 @@ class SettingsDialog extends React.Component {
         )
     }
 
-    renderGrids(objectiveTypes) {
+    renderServerRadioButtons(servers) {
+        return Object.keys(servers).map((server, index) =>
+            <FormControlLabel
+                value={servers[server]}
+                control={<Radio />}
+                label={servers[server]} />
+        )
+    }
+
+    renderVisibleObjectiveGrids(objectiveTypes) {
         return objectiveTypes.map((objectiveType, index) => 
             <Grid
             item
@@ -82,40 +118,46 @@ class SettingsDialog extends React.Component {
                 </Typography>
                 
                 <FormGroup>
-                    {this.renderCheckboxes(objectiveType.objectives)}
+                    {this.renderVisibleObjectiveCheckboxes(objectiveType.objectives)}
                 </FormGroup>
                 </Container>
             </Grid>
         )
     }
 
-    renderCheckboxes(objectives) {
+    renderVisibleObjectiveCheckboxes(objectives) {
         return objectives.map((objective, index) => 
             <FormControlLabel
             label={objective.name}
             control={
                 <Checkbox 
                 checked={!this.props.disabledObjectives[objective.resetType.name].includes(objective.name)}
-                onChange={this.handleChange(objective)}
+                onChange={this.handleChangeVisibleObjectives(objective)}
                 value={objective}/>
             }
             key={index}/>
         )
     }
 
-    handleChange = objective => event => {
+    handleChangeVisibleObjectives = objective => event => {
         this.props.toggleObjectiveDisabled(objective.name, objective.resetType)
+    }
+
+    handleChangeServer = event => {
+        this.props.setServer(event.target.value);
     }
 }
 
 const mapStateToProps = (state) => {
     return {
-        disabledObjectives: state.disabledObjectives
+        disabledObjectives: state.disabledObjectives,
+        server: state.server.server
     }
 }
 
 const mapDispatchToProps = {
-    toggleObjectiveDisabled
+    toggleObjectiveDisabled,
+    setServer
 }
 
 export default withStyles(styles)(connect(mapStateToProps, mapDispatchToProps)(SettingsDialog))
