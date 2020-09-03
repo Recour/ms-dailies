@@ -1,4 +1,5 @@
-import moment from 'moment'
+import moment from 'moment';
+import {timezoneOffsets} from "./timezones";
 
 // Daily reset time (00:00 UTC)
 export const dailyReset = {
@@ -51,7 +52,7 @@ export const resetTypesWeeklies = [
 ]
 
 // Next reset time for given time
-export const getNextResetTime = (time, resetType) => {
+export const getNextResetTime = (time, resetType, timezone) => {
     var nextReset = moment.utc(time)
 
     switch(resetType.interval) {
@@ -60,6 +61,8 @@ export const getNextResetTime = (time, resetType) => {
             nextReset.minute(resetType.minute)
             nextReset.second(resetType.second)
             nextReset.millisecond(resetType.millisecond)
+
+            nextReset.hour(nextReset.hour() - timezoneOffsets[timezone]);
 
             if(nextReset.isBefore(time)) {
                 nextReset.day(nextReset.day() + 1)
@@ -73,6 +76,8 @@ export const getNextResetTime = (time, resetType) => {
             nextReset.minute(resetType.minute)
             nextReset.second(resetType.second)
             nextReset.millisecond(resetType.millisecond)
+
+            nextReset.hour(nextReset.hour() - timezoneOffsets[timezone]);
 
             if(nextReset.isBefore(time)) {
                 nextReset.week(nextReset.week() + 1)

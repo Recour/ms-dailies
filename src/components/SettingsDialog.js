@@ -7,8 +7,7 @@ import {setServer} from "../actions/serverActions";
 import { 
     Dialog, 
     DialogTitle,
-    DialogContent, 
-    DialogContentText,
+    DialogContent,
     Typography,
     Divider,
     Checkbox,
@@ -26,7 +25,9 @@ import {objectiveTypes} from '../data/objectives'
 import {servers} from "../data/servers";
 
 const styles = {
-
+    fullWidth: {
+        width: '100%'
+    }
 }
 
 class SettingsDialog extends React.Component {
@@ -41,6 +42,7 @@ class SettingsDialog extends React.Component {
     }
 
     render() {
+        const {classes} = this.props;
         return(
             <Dialog
             open={this.props.open}
@@ -57,39 +59,40 @@ class SettingsDialog extends React.Component {
 
                 <DialogContent>
                     {/* Server */}
-                    <DialogContentText>
-                        <Box
-                            my={1}>
-                            <Typography
-                                variant="h5">
-                                Server
-                            </Typography>
-                        </Box>
+                    <Box
+                        my={1}>
+                        <Typography
+                            variant="h5">
+                            Server
+                        </Typography>
+                    </Box>
 
-                        <FormControl>
-                            <RadioGroup
-                                value={this.props.server}
-                                onChange={this.handleChangeServer}>
+                    <FormControl className={classes.fullWidth}>
+                        <RadioGroup
+                            value={this.props.server}
+                            onChange={this.handleChangeServer}>
+                            <Grid
+                                container
+                                justify={'space-evenly'}>
                                 {this.renderServerRadioButtons(servers)}
-                            </RadioGroup>
-                        </FormControl>
-                    </DialogContentText>
+                            </Grid>
+                        </RadioGroup>
+                    </FormControl>
 
                     {/* Visible objectives */}
-                    <DialogContentText>
-                        <Box
+                    <Box
                         my={1}>
-                            <Typography 
+                        <Typography
                             variant="h5">
-                                Visible objectives
-                            </Typography>
-                        </Box>
+                            Visible objectives
+                        </Typography>
+                    </Box>
 
-                        <Grid 
-                        container>
-                            {this.renderVisibleObjectiveGrids(objectiveTypes)}
-                        </Grid>
-                    </DialogContentText>
+                    <Grid
+                        container
+                        justify={'space-evenly'}>
+                        {this.renderVisibleObjectiveGrids(objectiveTypes)}
+                    </Grid>
                 </DialogContent>
             </Dialog>
         )
@@ -97,10 +100,17 @@ class SettingsDialog extends React.Component {
 
     renderServerRadioButtons(servers) {
         return Object.keys(servers).map((server, index) =>
-            <FormControlLabel
-                value={servers[server]}
-                control={<Radio />}
-                label={servers[server]} />
+            <Grid
+                item
+                xs={12}
+                md={1}
+                lg={1}
+                key={index}>
+                <FormControlLabel
+                    value={servers[server]}
+                    control={<Radio />}
+                    label={servers[server]}/>
+            </Grid>
         )
     }
 

@@ -19,6 +19,10 @@ window.onbeforeunload = (() => {
     saveState(store.getState())
 })
 
+store.subscribe(() => {
+    saveState(store.getState())
+})
+
 // Loop every second
 const setCurrentTimeLoop = () => {
     let start = moment.utc()

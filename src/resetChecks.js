@@ -9,10 +9,11 @@ import { getNextResetTime, resetTypes } from './data/resetTypes'
 export const checkForResetsLive = () => {
     let currentTime = moment.utc(store.getState().time.currentTime)
     var previousTime = moment.utc(currentTime).subtract(1, 'second')
+    let timezone = store.getState().server.server;
 
     resetTypes.forEach((resetType) => {
-        let previousResetTime = getNextResetTime(previousTime, resetType)
-        let currentResetTime = getNextResetTime(currentTime, resetType)
+        let previousResetTime = getNextResetTime(previousTime, resetType, timezone)
+        let currentResetTime = getNextResetTime(currentTime, resetType, timezone)
 
         if(previousResetTime.unix() !== currentResetTime.unix()) {
             store.dispatch(resetAllCompletedObjectives(resetType))
@@ -26,10 +27,11 @@ export const checkForResetsSinceLastVisit = () => {
     try {
         // Last visit is currentTime in persisted state
         let lastVisit = moment.utc(persistedState.time.currentTime)
+        let timezone = store.getState().server.server;
 
         // Reset objectives for each reset type if necessary
         resetTypes.forEach((resetType) => {
-            let lastVisitResetTime = getNextResetTime(lastVisit, resetType)
+            let lastVisitResetTime = getNextResetTime(lastVisit, resetType, timezone)
             let currentTime = moment.utc(store.getState().time.currentTime)
 
             if(lastVisitResetTime.isBefore(currentTime)) {

@@ -34,12 +34,14 @@ class ResetCountdown extends React.Component {
     }
 
     getCountdown() {
-        let timeUntilReset = this.getTimeUntilReset(moment(this.props.currentTime), this.props.resetType)
+        let timeUntilReset = this.getTimeUntilReset(moment(this.props.time.currentTime), this.props.resetType)
         return timeUntilReset.format('DD[D] HH[H] mm[M] ss[S]')
     }
 
     getTimeUntilReset(currentTime, resetType) {
-        let nextReset = getNextResetTime(currentTime, resetType)
+        let timezone = this.props.server.server;
+
+        let nextReset = getNextResetTime(currentTime, resetType, timezone)
         let difference = nextReset.unix() - currentTime.unix()
         let duration = moment.duration(difference, 'seconds')
         return duration
@@ -47,7 +49,10 @@ class ResetCountdown extends React.Component {
 }
 
 const mapStateToProps = (state) => {
-    return state.time
+    return {
+        time: state.time,
+        server: state.server
+    }
 }
 
 export default withStyles(styles)(connect(mapStateToProps)(ResetCountdown))
