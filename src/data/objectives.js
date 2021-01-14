@@ -233,6 +233,13 @@ export const objectives = [
         resetType: dailyReset
     },
     {
+        name: "Maple Tour",
+        image: images.quests['Maple Tour'],
+        subtext: "Solo",
+        objectiveType: "Quest",
+        resetType: dailyReset
+    },
+    {
         name: "Legion",
         image: images.quests['Legion'],
         subtext: "Solo",
